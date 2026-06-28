@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="ニューヨーク一人旅のための現地英語フレーズ図解。チケット提示・聞き返し・道案内・支払い・トラブル対応・勧誘を断る表現まで、場面別にスマホで探せる実戦ガイド。">
+<title>NYC 現地英語フレーズ図解｜一人旅・チケット事前取得版</title>
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    color-scheme: light dark;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+            "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+    /* light */
+    --bg: #eef1f6;
+    --bg2: #e3e8f0;
+    --surface: #ffffff;
+    --surface-2: #f4f6fa;
+    --ink: #161d2b;
+    --muted: #5a6678;
+    --faint: #8a93a3;
+    --line: #e3e7ee;
+    --line-strong: #d2d9e3;
+    --shadow: 0 1px 2px rgba(20,30,50,.05), 0 8px 24px rgba(20,30,50,.06);
+    --shadow-card: 0 1px 2px rgba(20,30,50,.06), 0 14px 34px rgba(20,30,50,.10);
+
+    /* spine accent */
+    --accent: #e5484d;
+    --accent-deep: #c92a2a;
+    --accent-soft: #fdecec;
+
+    /* tiers */
+    --t1: #e0414c;  --t1-bg:#fdebec;  --t1-ink:#a3232c;
+    --t2: #d98a00;  --t2-bg:#fdf2dc;  --t2-ink:#8a5600;
+    --t3: #0e8f8a;  --t3-bg:#dff3f1;  --t3-ink:#0a615d;
+
+    /* wayfinding lines */
+    --lineA:#3b5bdb; --lineA-bg:#e7ecfb;  /* 移動 */
+    --lineB:#b5730a; --lineB-bg:#fbf0db;  /* 滞在・食事・買い物 */
+    --lineC:#7048e8; --lineC-bg:#efe9fd;  /* 観る・入場 */
+    --lineD:#d6336c; --lineD-bg:#fce8ef;  /* 困った時・安全 */
+
+    /* strength */
+    --s-weak:#7a8699; --s-mid:#d98a00; --s-strong:#e0414c; --s-max:#a3232c;
+
+    --r: 16px; --r-sm: 11px; --r-xs: 8px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0c111b;
+      --bg2:#0f1521;
+      --surface:#18202e;
+      --surface-2:#131a26;
+      --ink:#e9edf4;
+      --muted:#9aa6b8;
+      --faint:#717d90;
+      --line:#28303f;
+      --line-strong:#3a4456;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.45);
+      --shadow-card: 0 1px 2px rgba(0,0,0,.45), 0 16px 40px rgba(0,0,0,.55);
+
+      --accent:#ff6166;
+      --accent-deep:#ff8084;
+      --accent-soft:#3a1f24;
+
+      --t1:#ff6166; --t1-bg:#3a2025; --t1-ink:#ff9a9d;
+      --t2:#ffb44d; --t2-bg:#3a2c12; --t2-ink:#ffcd85;
+      --t3:#2fd0c6; --t3-bg:#0f312f; --t3-ink:#7fe6df;
+
+      --lineA:#8098ff; --lineA-bg:#1b2547;
+      --lineB:#f0a64d; --lineB-bg:#382912;
+      --lineC:#a78bff; --lineC-bg:#291f47;
+      --lineD:#f56a9a; --lineD-bg:#3a1e2c;
+
+      --s-weak:#9aa6b8; --s-mid:#ffb44d; --s-strong:#ff6166; --s-max:#ff9a9d;
+    }
+  }
+
+  /* ============ BASE ============ */
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:var(--font);
+    background:
+      radial-gradient(120% 60% at 100% 0%, var(--bg2), transparent 60%),
+      var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    font-size:16px;
+    letter-spacing:.01em;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .wrap{ max-width:700px; margin:0 auto; padding:0 14px 96px; }
+  p{ margin:0; }
+  a{ color:inherit; }
+  :focus-visible{ outline:3px solid var(--accent); outline-offset:2px; border-radius:6px; }
+
+  /* ============ TOPBAR ============ */
+  .topbar{
+    position:sticky; top:0; z-index:40;
+    backdrop-filter:saturate(180%) blur(12px);
+    -webkit-backdrop-filter:saturate(180%) blur(12px);
+    background:color-mix(in srgb, var(--bg) 78%, transparent);
+    border-bottom:1px solid var(--line);
+    padding:9px 14px;
+  }
+  .topbar-in{ max-width:700px; margin:0 auto; display:flex; align-items:center; gap:9px; }
+  .topbar .dot{ width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft); flex:none; }
+  .topbar b{ font-size:14px; letter-spacing:.02em; }
+  .topbar .sub{ font-size:11px; color:var(--faint); margin-left:auto; font-variant-numeric:tabular-nums; }
+
+  /* ============ HERO ============ */
+  .hero{ position:relative; overflow:hidden; border-radius:0 0 var(--r) var(--r);
+    margin:0 -14px 18px; padding:16px 24px 0; }
+  .hero-bg{ position:absolute; inset:0; z-index:0;
+    background:
+      radial-gradient(90% 120% at 12% 0%, color-mix(in srgb,var(--accent) 16%, transparent), transparent 55%),
+      radial-gradient(80% 100% at 95% 10%, color-mix(in srgb,var(--lineA) 18%, transparent), transparent 55%);
+  }
+  .hero-inner{ position:relative; z-index:1; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:7px; font-size:11.5px; font-weight:700;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--accent-deep);
+    background:var(--accent-soft); padding:5px 11px; border-radius:999px; }
+  .eyebrow svg{ width:14px; height:14px; }
+  .hero h1{ font-size:clamp(25px,7.4vw,34px); line-height:1.18; letter-spacing:-.01em;
+    margin:13px 0 8px; font-weight:800; }
+  .hero h1 .accent{ color:var(--accent); }
+  .hero .lede{ font-size:14.5px; color:var(--muted); max-width:46ch; }
+  .chips{ display:flex; flex-wrap:wrap; gap:7px; margin-top:14px; }
+  .chip{ font-size:12px; font-weight:600; padding:5px 11px; border-radius:999px;
+    background:var(--surface); border:1px solid var(--line-strong); color:var(--ink);
+    display:inline-flex; align-items:center; gap:6px; }
+  .chip svg{ width:13px; height:13px; }
+  .skyline{ display:block; width:calc(100% + 48px); margin:10px -24px -1px; height:44px; }
+
+  /* ============ TOC ============ */
+  .toc{ margin:0 0 26px; }
+  .toc-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+  @media(min-width:520px){ .toc-grid{ grid-template-columns:repeat(3,1fr); } }
+  .toc a{ text-decoration:none; display:flex; align-items:center; gap:9px;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--r-sm);
+    padding:11px 12px; font-size:13px; font-weight:600; color:var(--ink); box-shadow:var(--shadow);
+    transition:transform .12s ease, border-color .12s ease; }
+  .toc a:hover{ transform:translateY(-2px); border-color:var(--line-strong); }
+  .toc .n{ font-family:var(--mono); font-size:11px; font-weight:700; color:var(--accent);
+    background:var(--accent-soft); width:24px; height:24px; border-radius:7px; display:grid; place-items:center; flex:none; }
+
+  /* ============ SECTIONS ============ */
+  section{ margin:0 0 34px; scroll-margin-top:62px; }
+  .sec-head{ display:flex; align-items:baseline; gap:11px; margin:0 0 15px; }
+  .sec-head .kicker{ font-family:var(--mono); font-size:12px; font-weight:700; color:var(--accent);
+    letter-spacing:.04em; flex:none; padding-top:2px; }
+  .sec-head h2{ font-size:20px; font-weight:800; letter-spacing:-.01em; margin:0; line-height:1.25; }
+  .sec-head .h2-sub{ display:block; font-size:12.5px; font-weight:500; color:var(--faint); margin-top:3px; letter-spacing:.01em; }
+
+  .card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+    box-shadow:var(--shadow); padding:18px; }
+  .card + .card{ margin-top:12px; }
+  .note{ font-size:12.5px; color:var(--muted); }
+
+  /* ============ STRATEGY ============ */
+  .strat{ display:grid; gap:10px; }
+  .strat-step{ position:relative; display:flex; gap:13px; align-items:flex-start;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+    padding:15px 16px; box-shadow:var(--shadow); }
+  .strat-step::before{ content:""; position:absolute; left:0; top:14px; bottom:14px; width:4px; border-radius:4px; }
+  .strat-1::before{ background:var(--t1); } .strat-2::before{ background:var(--t2); } .strat-3::before{ background:var(--t3); }
+  .strat-num{ flex:none; width:34px; height:34px; border-radius:10px; display:grid; place-items:center;
+    font-weight:800; font-size:16px; }
+  .strat-1 .strat-num{ background:var(--t1-bg); color:var(--t1-ink); }
+  .strat-2 .strat-num{ background:var(--t2-bg); color:var(--t2-ink); }
+  .strat-3 .strat-num{ background:var(--t3-bg); color:var(--t3-ink); }
+  .strat-step h3{ margin:1px 0 3px; font-size:15.5px; font-weight:700; }
+  .strat-step p{ font-size:12.5px; color:var(--muted); }
+  .strat-link{ display:inline-block; margin-top:6px; font-size:11.5px; font-weight:700; text-decoration:none;
+    color:var(--accent); }
+  .strat-arrow{ display:grid; place-items:center; color:var(--faint); height:6px; margin:-4px 0; }
+  .strat-arrow svg{ width:18px; height:18px; }
+
+  .prio{ margin-top:14px; }
+  .prio ol{ list-style:none; counter-reset:p; margin:0; padding:0; display:grid; gap:7px; }
+  .prio li{ counter-increment:p; display:flex; align-items:center; gap:11px;
+    background:var(--surface-2); border-radius:var(--r-sm); padding:10px 13px; font-size:14px; font-weight:600; }
+  .prio li::before{ content:counter(p); font-family:var(--mono); font-weight:800; font-size:13px;
+    width:24px; height:24px; flex:none; border-radius:50%; display:grid; place-items:center;
+    background:var(--accent); color:#fff; }
+  @media (prefers-color-scheme: dark){ .prio li::before{ color:#1a1110; } }
+
+  /* ============ PHRASE LIST ============ */
+  .prs{ list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+  .pr{ display:grid; grid-template-columns:1fr auto; gap:3px 10px; align-items:start;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--r-sm);
+    padding:11px 13px; box-shadow:var(--shadow); }
+  .pr-en{ font-size:16.5px; font-weight:700; letter-spacing:.005em; line-height:1.35; grid-column:1; }
+  .pr-ja{ font-size:14px; color:var(--muted); grid-column:1; line-height:1.5; }
+  .pr-cx{ grid-column:2; grid-row:1; justify-self:end; align-self:start; white-space:nowrap;
+    font-size:10.5px; font-weight:700; color:var(--ink); background:var(--surface-2);
+    border:1px solid var(--line-strong); padding:3px 8px; border-radius:999px; }
+  .pr-tip{ grid-column:1 / -1; font-size:11px; color:var(--faint); margin-top:2px;
+    display:inline-flex; align-items:center; gap:5px; }
+  .pr-tip::before{ content:""; width:4px; height:4px; border-radius:50%; background:var(--faint); flex:none; }
+
+  .srank .pr{ grid-template-columns:auto 1fr auto; }
+  .srank .pr-en, .srank .pr-ja{ grid-column:2; }
+  .srank .pr-cx{ grid-column:3; }
+  .srank .num{ grid-column:1; grid-row:1 / span 2; align-self:center; font-family:var(--mono);
+    font-weight:800; font-size:13px; color:var(--accent); background:var(--accent-soft);
+    width:30px; height:30px; border-radius:9px; display:grid; place-items:center; flex:none; }
+  .srank .pr-tip{ grid-column:2 / -1; }
+
+  .sub-label{ display:flex; align-items:center; gap:8px; font-size:12px; font-weight:800;
+    letter-spacing:.06em; text-transform:uppercase; color:var(--faint); margin:16px 0 9px; }
+  .sub-label:first-child{ margin-top:2px; }
+  .sub-label::after{ content:""; height:1px; background:var(--line); flex:1; }
+
+  /* ============ SHOW CARDS ============ */
+  .showcards{ display:grid; gap:13px; }
+  .showcard{ border-radius:var(--r); overflow:hidden; box-shadow:var(--shadow-card);
+    border:1px solid var(--line); background:var(--surface); }
+  .showcard-head{ display:flex; align-items:center; gap:9px; padding:11px 15px; color:#fff; }
+  .sc-normal .showcard-head{ background:linear-gradient(100deg,#2a3550,#3b5bdb); }
+  .sc-ticket .showcard-head{ background:linear-gradient(100deg,#7a2329,var(--accent)); }
+  .sc-lost       .showcard-head{ background:linear-gradient(100deg,#0a615d,#0e8f8a); }
+  .sc-taxi       .showcard-head{ background:linear-gradient(100deg,#3b2800,#7a5500); }
+  .sc-restaurant .showcard-head{ background:linear-gradient(100deg,#3d1a00,#a63d10); }
+  .sc-hotel      .showcard-head{ background:linear-gradient(100deg,#0f2840,#1a5280); }
+  .sc-refuse     .showcard-head{ background:linear-gradient(100deg,#4a1a00,#9b3510); }
+  .sc-emergency  .showcard-head{ background:linear-gradient(100deg,#6b0000,#c91111); }
+  .sc-emergency{ border-color:var(--accent); border-width:2px; }
+  .sc-howto{ display:flex; align-items:flex-start; gap:10px; background:var(--lineA-bg);
+    border:1px solid color-mix(in srgb,var(--lineA) 25%,transparent);
+    border-radius:var(--r-sm); padding:12px 14px; margin-bottom:16px;
+    font-size:13px; color:var(--lineA); line-height:1.5; }
+  .sc-howto svg{ width:18px; height:18px; flex:none; margin-top:1px; }
+  .sc-howto b{ color:inherit; }
+  .showcard-head svg{ width:17px; height:17px; flex:none; }
+  .showcard-head b{ font-size:14px; letter-spacing:.02em; }
+  .showcard-head .tag{ margin-left:auto; font-size:10.5px; font-weight:700; background:rgba(255,255,255,.22);
+    padding:3px 9px; border-radius:999px; }
+  .showcard ul{ list-style:none; margin:0; padding:6px 15px 15px; display:grid; gap:11px; }
+  .showcard li{ display:grid; gap:2px; padding-bottom:11px; border-bottom:1px dashed var(--line); }
+  .showcard li:last-child{ border-bottom:0; padding-bottom:0; }
+  .showcard .en{ font-size:18px; font-weight:800; line-height:1.3; }
+  .showcard .ja{ font-size:14px; color:var(--muted); }
+
+  /* ============ BASIC FLOW ============ */
+  .flow ol{ list-style:none; margin:0; padding:0; display:grid; gap:0; }
+  .flow li{ position:relative; padding:0 0 16px 30px; }
+  .flow li:last-child{ padding-bottom:0; }
+  .flow li::before{ content:""; position:absolute; left:7px; top:4px; bottom:-4px; width:2px; background:var(--line-strong); }
+  .flow li:last-child::before{ display:none; }
+  .flow .dot{ position:absolute; left:0; top:2px; width:16px; height:16px; border-radius:50%;
+    background:var(--surface); border:3px solid var(--accent); }
+  .flow .en{ font-size:17px; font-weight:800; }
+  .flow .ja{ font-size:12.5px; color:var(--muted); }
+
+  /* ============ TIER FUNNEL ============ */
+  .funnel{ display:grid; gap:9px; margin-bottom:16px; }
+  .tier-bar{ border-radius:var(--r-sm); padding:12px 14px; margin:0 auto; width:100%;
+    display:flex; align-items:center; gap:10px; box-shadow:var(--shadow); }
+  .tier-1{ background:var(--t1); color:#fff; width:58%; }
+  .tier-2{ background:var(--t2); color:#231400; width:80%; }
+  .tier-3{ background:var(--t3); color:#fff; width:100%; }
+  @media (prefers-color-scheme: dark){
+    .tier-1{ color:#180b0d; } .tier-3{ color:#04201e; }
+  }
+  .tier-bar .lv{ font-family:var(--mono); font-weight:800; font-size:12px; padding:3px 8px;
+    border-radius:6px; background:rgba(255,255,255,.28); flex:none; }
+  .tier-2 .lv{ background:rgba(0,0,0,.16); }
+  .tier-bar b{ font-size:14px; font-weight:800; }
+  .tier-bar .cnt{ margin-left:auto; font-size:11.5px; font-weight:700; opacity:.92; white-space:nowrap; }
+
+  /* ============ LINE LEGEND ============ */
+  .legend{ display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-bottom:16px; }
+  @media(max-width:420px){ .legend{ grid-template-columns:1fr; } }
+  .legend-item{ display:flex; align-items:center; gap:9px; background:var(--surface);
+    border:1px solid var(--line); border-radius:var(--r-sm); padding:9px 11px; box-shadow:var(--shadow); }
+  .legend-ic{ width:30px; height:30px; border-radius:9px; display:grid; place-items:center; flex:none; }
+  .legend-ic svg{ width:17px; height:17px; }
+  .lgA{ background:var(--lineA-bg); color:var(--lineA); } .lgB{ background:var(--lineB-bg); color:var(--lineB); }
+  .lgC{ background:var(--lineC-bg); color:var(--lineC); } .lgD{ background:var(--lineD-bg); color:var(--lineD); }
+  .legend-item b{ font-size:13px; font-weight:700; display:block; line-height:1.3; }
+  .legend-item span{ font-size:11px; color:var(--faint); }
+
+  /* ============ SCENES ============ */
+  .scene{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+    box-shadow:var(--shadow); margin-bottom:10px; overflow:hidden; }
+  .scene > summary{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:12px;
+    padding:14px 15px; user-select:none; }
+  .scene > summary::-webkit-details-marker{ display:none; }
+  .scene-badge{ flex:none; width:38px; height:38px; border-radius:11px; display:grid; place-items:center;
+    font-family:var(--mono); font-weight:800; font-size:15px; }
+  .lineA .scene-badge{ background:var(--lineA-bg); color:var(--lineA); }
+  .lineB .scene-badge{ background:var(--lineB-bg); color:var(--lineB); }
+  .lineC .scene-badge{ background:var(--lineC-bg); color:var(--lineC); }
+  .lineD .scene-badge{ background:var(--lineD-bg); color:var(--lineD); }
+  .scene-meta{ flex:1; min-width:0; }
+  .scene-meta b{ font-size:15.5px; font-weight:800; display:block; line-height:1.3; }
+  .scene-meta span{ font-size:11.5px; color:var(--faint); display:inline-flex; align-items:center; gap:6px; }
+  .scene-line{ font-size:10px; font-weight:800; letter-spacing:.05em; padding:2px 7px; border-radius:999px; }
+  .lineA .scene-line{ background:var(--lineA-bg); color:var(--lineA); }
+  .lineB .scene-line{ background:var(--lineB-bg); color:var(--lineB); }
+  .lineC .scene-line{ background:var(--lineC-bg); color:var(--lineC); }
+  .lineD .scene-line{ background:var(--lineD-bg); color:var(--lineD); }
+  .chev{ flex:none; color:var(--faint); transition:transform .22s ease; }
+  .chev svg{ width:18px; height:18px; display:block; }
+  .scene[open] .chev{ transform:rotate(90deg); }
+  .scene-body{ padding:2px 15px 16px; border-top:1px solid var(--line); }
+  .scene[open] .scene-body{ animation:reveal .24s ease; }
+  @keyframes reveal{ from{ opacity:0; transform:translateY(-4px); } to{ opacity:1; transform:none; } }
+  .scene-body .prs .pr{ box-shadow:none; }
+
+  /* ============ DIALOGUE ============ */
+  .dlg-group{ margin-bottom:10px; }
+  .dlg-sub{ display:flex; align-items:center; gap:9px; font-size:13px; font-weight:800; margin:18px 0 9px; }
+  .dlg-sub:first-child{ margin-top:2px; }
+  .dlg-sub .ic{ width:26px; height:26px; border-radius:8px; display:grid; place-items:center; flex:none; background:var(--accent-soft); color:var(--accent-deep); }
+  .dlg-sub .ic svg{ width:15px; height:15px; }
+  .dlg{ display:grid; gap:7px; padding:12px; background:var(--surface-2); border-radius:var(--r); margin-bottom:9px; }
+  .bubble{ max-width:88%; padding:9px 13px; border-radius:15px; }
+  .bubble .role{ font-size:10px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; opacity:.7; display:block; margin-bottom:2px; }
+  .bubble .en{ font-size:14.5px; font-weight:700; line-height:1.35; }
+  .bubble .ja{ font-size:12.5px; opacity:.85; display:block; }
+  .b-in{ justify-self:start; background:var(--surface); border:1px solid var(--line-strong);
+    border-bottom-left-radius:5px; color:var(--ink); }
+  .b-in .role{ color:var(--faint); }
+  .b-out{ justify-self:end; text-align:right; background:var(--accent); color:#fff;
+    border-bottom-right-radius:5px; }
+  @media (prefers-color-scheme: dark){ .b-out{ color:#180b0d; } }
+  .b-out .role{ opacity:.85; }
+
+  /* ============ COMPARE ============ */
+  .cmp{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r-sm);
+    padding:12px 14px; box-shadow:var(--shadow); }
+  .cmp + .cmp{ margin-top:8px; }
+  .cmp-want{ font-size:13px; font-weight:800; color:var(--muted); margin-bottom:8px;
+    display:inline-flex; align-items:center; gap:7px; }
+  .cmp-want::before{ content:"言いたいこと"; font-size:9.5px; font-weight:800; letter-spacing:.05em;
+    color:var(--accent); background:var(--accent-soft); padding:2px 7px; border-radius:5px; }
+  .cmp-opts{ display:grid; gap:7px; }
+  @media(min-width:480px){ .cmp-opts{ grid-template-columns:1fr 1fr; } }
+  .cmp-opt{ padding:9px 11px; border-radius:9px; font-size:14.5px; font-weight:700; }
+  .cmp-opt span{ display:block; font-size:9.5px; font-weight:800; letter-spacing:.07em;
+    text-transform:uppercase; margin-bottom:2px; }
+  .cmp-short{ background:var(--surface-2); }
+  .cmp-short span{ color:var(--faint); }
+  .cmp-polite{ background:var(--lineC-bg); }
+  .cmp-polite span{ color:var(--lineC); }
+
+  /* ============ AVOID ============ */
+  .avoid{ background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--accent);
+    border-radius:var(--r-sm); padding:12px 14px; box-shadow:var(--shadow); }
+  .avoid + .avoid{ margin-top:8px; }
+  .avoid-row{ display:flex; align-items:center; gap:9px; }
+  .avoid-bad{ font-size:14.5px; font-weight:700; text-decoration:line-through; text-decoration-color:var(--accent);
+    text-decoration-thickness:2px; color:var(--muted); }
+  .mark{ flex:none; width:21px; height:21px; border-radius:50%; display:grid; place-items:center;
+    font-size:12px; font-weight:900; }
+  .mark.x{ background:var(--accent-soft); color:var(--accent-deep); }
+  .mark.o{ background:var(--t3-bg); color:var(--t3-ink); }
+  .avoid-why{ font-size:11.5px; color:var(--faint); margin:6px 0 6px 30px; }
+  .avoid-good{ font-size:14.5px; font-weight:800; display:flex; align-items:center; gap:9px; }
+
+  /* ============ TEMPLATES ============ */
+  .tpls{ display:grid; gap:11px; }
+  @media(min-width:560px){ .tpls{ grid-template-columns:1fr 1fr; } }
+  .tpl{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+    box-shadow:var(--shadow); overflow:hidden; }
+  .tpl-head{ display:flex; align-items:center; gap:9px; padding:11px 14px; background:var(--surface-2);
+    border-bottom:1px solid var(--line); }
+  .tpl-head .ic{ width:26px; height:26px; border-radius:8px; background:var(--accent-soft); color:var(--accent-deep);
+    display:grid; place-items:center; flex:none; }
+  .tpl-head .ic svg{ width:15px; height:15px; }
+  .tpl-head b{ font-size:14px; font-weight:800; }
+  .tpl ol{ list-style:none; counter-reset:t; margin:0; padding:11px 14px; display:grid; gap:9px; }
+  .tpl li{ counter-increment:t; display:grid; grid-template-columns:auto 1fr; gap:10px; align-items:baseline; }
+  .tpl li::before{ content:counter(t); font-family:var(--mono); font-weight:800; font-size:11px;
+    color:var(--accent); width:18px; flex:none; }
+  .tpl .en{ font-size:15.5px; font-weight:700; }
+  .tpl .ja{ font-size:12px; color:var(--faint); display:block; }
+  .tpl-extra{ margin:0 14px 13px; padding:10px 12px; background:var(--accent-soft); border-radius:9px; }
+  .tpl-extra b{ color:var(--accent-deep); font-size:11px; font-weight:800; letter-spacing:.04em; display:block; margin-bottom:5px; }
+  .tpl-extra .en{ font-size:14px; font-weight:700; }
+  .tpl-extra .ja{ font-size:12px; color:var(--muted); display:block; margin-bottom:4px; }
+
+  /* ============ BASIS ============ */
+  .basis{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+    box-shadow:var(--shadow); padding:18px; }
+  .basis h3{ font-size:13px; font-weight:800; letter-spacing:.04em; margin:0 0 8px;
+    display:inline-flex; align-items:center; gap:7px; }
+  .basis h3 .tg{ font-size:10px; font-weight:800; padding:2px 8px; border-radius:5px; }
+  .tg-fact{ background:var(--t3-bg); color:var(--t3-ink); }
+  .tg-guess{ background:var(--t2-bg); color:var(--t2-ink); }
+  .tg-opin{ background:var(--lineC-bg); color:var(--lineC); }
+  .basis ul{ margin:0 0 18px; padding-left:18px; }
+  .basis li{ font-size:13px; color:var(--muted); margin-bottom:6px; line-height:1.55; }
+  .basis li:last-child{ margin-bottom:0; }
+  .basis .em{ color:var(--ink); font-weight:700; }
+  .confidence{ display:flex; align-items:center; gap:11px; padding:13px 15px; border-radius:var(--r-sm);
+    background:linear-gradient(100deg, var(--t3-bg), var(--surface-2)); border:1px solid var(--line); margin-top:4px; }
+  .confidence .badge{ font-weight:800; font-size:15px; color:#fff; background:var(--t3);
+    width:42px; height:42px; border-radius:12px; display:grid; place-items:center; flex:none; }
+  @media (prefers-color-scheme: dark){ .confidence .badge{ color:#04201e; } }
+  .confidence .lab{ font-size:11px; font-weight:800; color:var(--t3-ink); letter-spacing:.05em; }
+  .confidence p{ font-size:12px; color:var(--muted); margin-top:2px; }
+
+  /* ============ MENU BUTTON ============ */
+  .menu-btn {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+    padding: 5px 10px 5px 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+    font-family: var(--font);
+    letter-spacing: .02em;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .menu-btn svg { width: 14px; height: 14px; flex: none; }
+  .menu-btn:active { opacity: .7; }
+
+  /* ============ BOTTOM NAV ============ */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    background: color-mix(in srgb, var(--surface) 94%, transparent);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-top: 1px solid var(--line);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .bn-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 7px 2px 8px;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .01em;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 50px;
+    transition: color .1s ease;
+  }
+  .bn-item svg { width: 17px; height: 17px; }
+  .bn-item:active { color: var(--accent); }
+  .bn-top { color: var(--accent); }
+  .bn-top:active { opacity: .7; }
+
+  /* ============ NAV OVERLAY ============ */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0,0,0,.65);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+  }
+  .nav-overlay.is-open {
+    display: block;
+    animation: nv-fadein .18s ease;
+  }
+  @keyframes nv-fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .nav-sheet {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(300px, 88vw);
+    background: var(--surface);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    animation: nv-slidein .22s ease;
+  }
+  @keyframes nv-slidein {
+    from { transform: translateX(100%); }
+    to   { transform: none; }
+  }
+  .nav-sheet-top {
+    position: sticky;
+    top: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+  }
+  .nav-sheet-title { font-size: 15px; font-weight: 800; }
+  .nav-close-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 16px;
+    display: grid;
+    place-items: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 6px 0 calc(24px + env(safe-area-inset-bottom));
+  }
+  .nav-list a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 16px;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-list a:active { background: var(--surface-2); }
+  .nav-list .nav-n {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    display: grid;
+    place-items: center;
+    flex: none;
+  }
+
+  .callout{ display:flex; gap:10px; align-items:flex-start; background:var(--accent-soft);
+    border-radius:var(--r-sm); padding:12px 14px; margin-top:12px; font-size:12.5px; color:var(--ink); }
+  .callout svg{ width:17px; height:17px; flex:none; color:var(--accent-deep); margin-top:1px; }
+  .callout b{ color:var(--accent-deep); }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ============ REPLY TABS ============ */
+  .reply-tab-bar {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 14px;
+  }
+  .reply-tab-bar::-webkit-scrollbar { display: none; }
+  .reply-tab-btn {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1.5px solid var(--line-strong);
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+    font-family: var(--font);
+    cursor: pointer;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  .reply-tab-btn.is-active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    .reply-tab-btn.is-active { color: #180b0d; }
+  }
+  .reply-tab-btn svg { width: 14px; height: 14px; flex: none; }
+  .reply-panel { display: none; }
+  .reply-panel.is-active { display: block; animation: reveal .22s ease; }
+
+  /* ============ PHRASE SPOTLIGHT ============ */
+  .pr .pr-en,
+  .showcard li .en,
+  .flow li .en,
+  .tpl li .en,
+  .bubble .en {
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(229,72,77,.18);
+  }
+  .pr .pr-en:active { opacity: .7; }
+
+  #phrase-spotlight {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0,0,0,.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 18px;
+    padding: 20px;
+  }
+  #phrase-spotlight.ps-open {
+    display: flex;
+    animation: ps-in .2s ease;
+  }
+  @keyframes ps-in {
+    from { opacity:0; transform:scale(.96); }
+    to   { opacity:1; transform:none; }
+  }
+  #phrase-spotlight .ps-card {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 38px 30px 32px;
+    width: 100%;
+    max-width: 560px;
+    text-align: center;
+    box-shadow: 0 20px 80px rgba(0,0,0,.65);
+  }
+  #phrase-spotlight .ps-en {
+    font-size: clamp(22px, 7.5vw, 38px);
+    font-weight: 800;
+    color: #111827;
+    line-height: 1.2;
+    letter-spacing: -.01em;
+  }
+  #phrase-spotlight .ps-ja {
+    font-size: 15px;
+    color: #6b7280;
+    margin-top: 11px;
+    line-height: 1.55;
+  }
+  #phrase-spotlight .ps-cx {
+    display: inline-flex;
+    margin-top: 14px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .06em;
+    color: #c92a2a;
+    background: #fdecec;
+    padding: 3px 13px;
+    border-radius: 999px;
+  }
+  #phrase-spotlight .ps-hint {
+    font-size: 12.5px;
+    color: rgba(255,255,255,.42);
+    letter-spacing: .05em;
+  }
+  #phrase-spotlight .ps-card {
+    position: relative;
+  }
+  #phrase-spotlight .ps-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #f3f4f6;
+    border: none;
+    color: #6b7280;
+    font-size: 15px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #phrase-spotlight .ps-close:active { opacity: .7; }
+
+  /* ============ MEMO DETAILS (01 折りたたみ) ============ */
+  .memo-details > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 14px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--muted);
+    box-shadow: var(--shadow);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    margin-bottom: 2px;
+  }
+  .memo-details > summary::-webkit-details-marker { display: none; }
+  .memo-details[open] > summary { margin-bottom: 12px; }
+  .memo-chev { margin-left: auto; flex: none; color: var(--faint); transition: transform .22s ease; }
+  .memo-chev svg { width: 16px; height: 16px; display: block; }
+  .memo-details[open] .memo-chev { transform: rotate(90deg); }
+  .memo-details[open] > *:not(summary) { animation: reveal .22s ease; }
+
+  /* ============ SHOWCARD ACCORDION (03 折りたたみ) ============ */
+  details.showcard > summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  details.showcard > summary::-webkit-details-marker { display: none; }
+  .sc-chev { flex: none; color: rgba(255,255,255,.8); transition: transform .22s ease; margin-left: 6px; }
+  .sc-chev svg { width: 15px; height: 15px; display: block; }
+  details.showcard[open] .sc-chev { transform: rotate(90deg); }
+
+  /* ============ SCENE CATEGORY TABS (04 絞り込み) ============ */
+  .scene-cat-bar {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 14px;
+  }
+  .scene-cat-bar::-webkit-scrollbar { display: none; }
+  .scene-cat-btn {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 13px;
+    border-radius: 999px;
+    border: 1.5px solid var(--line-strong);
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 12.5px;
+    font-weight: 700;
+    font-family: var(--font);
+    cursor: pointer;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  .scene-cat-btn svg { width: 13px; height: 13px; flex: none; }
+  .scene-cat-btn[data-cat="all"].is-active { background: var(--ink); border-color: var(--ink); color: var(--surface); }
+  .scene-cat-btn[data-cat="A"].is-active { background: var(--lineA-bg); border-color: var(--lineA); color: var(--lineA); }
+  .scene-cat-btn[data-cat="B"].is-active { background: var(--lineB-bg); border-color: var(--lineB); color: var(--lineB); }
+  .scene-cat-btn[data-cat="C"].is-active { background: var(--lineC-bg); border-color: var(--lineC); color: var(--lineC); }
+  .scene-cat-btn[data-cat="D"].is-active { background: var(--lineD-bg); border-color: var(--lineD); color: var(--lineD); }
+
+  /* ============ CLOSE-ALL BUTTON (04) ============ */
+  .close-all-btn {
+    margin-left: auto;
+    align-self: center;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+    padding: 5px 10px 5px 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    cursor: pointer;
+    font-family: var(--font);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .close-all-btn svg { width: 13px; height: 13px; flex: none; }
+  .close-all-btn:active { opacity: .7; }
+</style>
+</head>
+<body id="top">
+
+<div class="topbar">
+  <div class="topbar-in">
+    <span class="dot" aria-hidden="true"></span>
+    <b>NYC 現地英語フレーズ図解</b>
+    <button class="menu-btn" id="menu-open" aria-label="目次を開く" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      目次
+    </button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-label="概要">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        New York · 一人旅 実戦ガイド
+      </span>
+      <h1>困ったら<span class="accent">短文＋スマホ提示</span>。<br>場面で探せる英語帳。</h1>
+    </div>
+    <svg class="skyline" viewBox="0 0 720 74" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="var(--accent)" stop-opacity="0.18"/>
+          <stop offset="1" stop-color="var(--lineA)" stop-opacity="0.30"/>
+        </linearGradient>
+      </defs>
+      <g fill="url(#sky)">
+        <rect x="0" y="46" width="34" height="28"/>
+        <rect x="36" y="34" width="26" height="40"/>
+        <rect x="64" y="52" width="40" height="22"/>
+        <rect x="106" y="40" width="22" height="34"/>
+        <rect x="120" y="20" width="8" height="20"/>
+        <rect x="132" y="50" width="46" height="24"/>
+        <rect x="180" y="30" width="30" height="44"/>
+        <polygon points="226,16 238,16 248,38 216,38"/>
+        <rect x="216" y="36" width="32" height="38"/>
+        <rect x="230" y="6" width="4" height="12"/>
+        <rect x="252" y="48" width="38" height="26"/>
+        <rect x="292" y="38" width="24" height="36"/>
+        <rect x="318" y="54" width="44" height="20"/>
+        <rect x="360" y="28" width="28" height="46"/>
+        <rect x="372" y="14" width="4" height="14"/>
+        <rect x="392" y="46" width="36" height="28"/>
+        <rect x="430" y="34" width="26" height="40"/>
+        <rect x="458" y="50" width="40" height="24"/>
+        <rect x="500" y="24" width="30" height="50"/>
+        <polygon points="510,10 520,10 530,24 500,24"/>
+        <rect x="534" y="44" width="34" height="30"/>
+        <rect x="570" y="36" width="24" height="38"/>
+        <rect x="596" y="52" width="44" height="22"/>
+        <rect x="640" y="40" width="26" height="34"/>
+        <rect x="668" y="48" width="52" height="26"/>
+      </g>
+    </svg>
+  </section>
+
+  <!-- ===== TOC ===== -->
+  <nav class="toc" aria-label="目次">
+    <div class="toc-grid">
+      <a href="#memorize"><span class="n">01</span>覚えるフレーズ</a>
+      <a href="#srank"><span class="n">02</span>Sランク</a>
+      <a href="#cards"><span class="n">03</span>見せる用カード</a>
+      <a href="#scenes"><span class="n">04</span>場面別ガイド</a>
+      <a href="#replies"><span class="n">05</span>相手の英語と返答</a>
+      <a href="#rephrase"><span class="n">06</span>通じる言い換え</a>
+      <a href="#avoid"><span class="n">07</span>避ける表現</a>
+      <a href="#basis"><span class="n">08</span>根拠と確度</a>
+    </div>
+  </nav>
+
+  <!-- ===== 01 MEMORIZE ===== -->
+  <section id="memorize">
+    <div class="sec-head">
+      <span class="kicker">01</span>
+      <h2>覚えるフレーズ<span class="h2-sub">レベル1：これだけは口から出るように。最優先の暗記セット。</span></h2>
+    </div>
+    <details class="memo-details">
+      <summary>フレーズ一覧を確認する（25フレーズ）<span class="memo-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span></summary>
+    <p class="sub-label">話しかける・紹介</p>
+    <ul class="prs">
+      <li class="pr"><p class="pr-en">Excuse me.</p><p class="pr-ja">すみません</p><span class="pr-cx">話しかける</span></li>
+      <li class="pr"><p class="pr-en">My English is not good.</p><p class="pr-ja">英語が得意ではありません</p><span class="pr-cx">困った時</span></li>
+    </ul>
+    <p class="sub-label">聞き取り</p>
+    <ul class="prs">
+      <li class="pr"><p class="pr-en">Please speak slowly.</p><p class="pr-ja">ゆっくり話してください</p><span class="pr-cx">聞き取り</span></li>
+      <li class="pr"><p class="pr-en">Please speak slowly and use simple English.</p><p class="pr-ja">ゆっくり、簡単な英語で話してください</p><span class="pr-cx">聞き取り</span></li>
+      <li class="pr"><p class="pr-en">Could you say that again?</p><p class="pr-ja">もう一度言ってもらえますか？</p><span class="pr-cx">聞き返し</span></li>
+      <li class="pr"><p class="pr-en">Could you say it more simply?</p><p class="pr-ja">もっと簡単に言ってもらえますか？</p><span class="pr-cx">難しい時</span></li>
+    </ul>
+    <p class="sub-label">入場・提示</p>
+    <ul class="prs">
+      <li class="pr"><p class="pr-en">I have a ticket.</p><p class="pr-ja">チケットを持っています</p><span class="pr-cx">入場</span></li>
+      <li class="pr"><p class="pr-en">Here is my ticket.</p><p class="pr-ja">チケットはこちらです</p><span class="pr-cx">入場</span></li>
+      <li class="pr"><p class="pr-en">Here is my reservation.</p><p class="pr-ja">予約はこちらです</p><span class="pr-cx">ホテル/店</span></li>
+      <li class="pr"><p class="pr-en">I have it in Google Wallet.</p><p class="pr-ja">Googleウォレットに入っています</p><span class="pr-cx">提示</span></li>
+      <li class="pr"><p class="pr-en">Can you scan this?</p><p class="pr-ja">これをスキャンできますか？</p><span class="pr-cx">QR提示</span></li>
+      <li class="pr"><p class="pr-en">My ticket won't load.</p><p class="pr-ja">チケットが表示されません</p><span class="pr-cx">トラブル</span></li>
+    </ul>
+    <p class="sub-label">確認・操作</p>
+    <ul class="prs">
+      <li class="pr"><p class="pr-en">Is this the right line?</p><p class="pr-ja">この列で合っていますか？</p><span class="pr-cx">列確認</span></li>
+      <li class="pr"><p class="pr-en">I'm looking for this place.</p><p class="pr-ja">この場所を探しています</p><span class="pr-cx">道迷い</span></li>
+      <li class="pr"><p class="pr-en">How do I get to Times Square?</p><p class="pr-ja">タイムズスクエアへはどう行けばいいですか？</p><span class="pr-cx">道案内</span><span class="pr-tip">地名を変える</span></li>
+      <li class="pr"><p class="pr-en">Just a moment, please.</p><p class="pr-ja">少し待ってください</p><span class="pr-cx">操作中</span></li>
+    </ul>
+    <p class="sub-label">万能・返答</p>
+    <ul class="prs">
+      <li class="pr"><p class="pr-en">Could you help me?</p><p class="pr-ja">手伝ってもらえますか？</p><span class="pr-cx">万能</span></li>
+      <li class="pr"><p class="pr-en">Yes, please.</p><p class="pr-ja">はい、お願いします</p><span class="pr-cx">頼む</span></li>
+      <li class="pr"><p class="pr-en">No, thank you.</p><p class="pr-ja">いいえ、けっこうです</p><span class="pr-cx">断る</span></li>
+      <li class="pr"><p class="pr-en">This one, please.</p><p class="pr-ja">これです</p><span class="pr-cx">指さし</span></li>
+    </ul>
+    <p class="sub-label">場所・支払い・写真</p>
+    <ul class="prs">
+      <li class="pr"><p class="pr-en">Where is the restroom?</p><p class="pr-ja">トイレはどこですか？</p><span class="pr-cx">どこでも</span></li>
+      <li class="pr"><p class="pr-en">Can I pay by card?</p><p class="pr-ja">カードで払えますか？</p><span class="pr-cx">支払い</span></li>
+      <li class="pr"><p class="pr-en">I'll pay by card.</p><p class="pr-ja">カードで払います</p><span class="pr-cx">支払い</span></li>
+      <li class="pr"><p class="pr-en">Can I tap my card?</p><p class="pr-ja">カードをタッチできますか？</p><span class="pr-cx">タッチ決済</span></li>
+      <li class="pr"><p class="pr-en">Could you take my picture?</p><p class="pr-ja">写真を撮ってもらえますか？</p><span class="pr-cx">観光</span></li>
+    </ul>
+    </details>
+
+  </section>
+
+  <!-- ===== 02 S-RANK ===== -->
+  <section id="srank">
+    <div class="sec-head">
+      <span class="kicker">02</span>
+      <h2>Sランク<span class="h2-sub">これだけ覚えておけば、かなり対応できる最優先の38本。</span></h2>
+    </div>
+    <p class="sub-label">基本マナー</p>
+    <ul class="prs srank">
+      <li class="pr"><span class="num">1</span><p class="pr-en">Excuse me.</p><p class="pr-ja">すみません</p><span class="pr-cx">話しかける</span></li>
+      <li class="pr"><span class="num">2</span><p class="pr-en">Sorry.</p><p class="pr-ja">すみません</p><span class="pr-cx">軽い謝罪</span><span class="pr-tip">ぶつかった時など</span></li>
+      <li class="pr"><span class="num">3</span><p class="pr-en">Thank you.</p><p class="pr-ja">ありがとう</p><span class="pr-cx">すべて</span></li>
+      <li class="pr"><span class="num">4</span><p class="pr-en">Yes, please.</p><p class="pr-ja">はい、お願いします</p><span class="pr-cx">頼む</span></li>
+      <li class="pr"><span class="num">5</span><p class="pr-en">No, thank you.</p><p class="pr-ja">いいえ、けっこうです</p><span class="pr-cx">断る</span></li>
+      <li class="pr"><span class="num">6</span><p class="pr-en">I'm good, thanks.</p><p class="pr-ja">大丈夫です、ありがとう</p><span class="pr-cx">断る</span></li>
+      <li class="pr"><span class="num">7</span><p class="pr-en">This one, please.</p><p class="pr-ja">これです</p><span class="pr-cx">指さし</span><span class="pr-tip">スマホ提示でも使える</span></li>
+    </ul>
+    <p class="sub-label">英語の壁を越える</p>
+    <ul class="prs srank">
+      <li class="pr"><span class="num">8</span><p class="pr-en">My English is not good.</p><p class="pr-ja">英語が得意ではありません</p><span class="pr-cx">困った時</span><span class="pr-tip">最初に言うとよい</span></li>
+      <li class="pr"><span class="num">9</span><p class="pr-en">Please speak slowly.</p><p class="pr-ja">ゆっくり話してください</p><span class="pr-cx">聞き取り</span></li>
+      <li class="pr"><span class="num">10</span><p class="pr-en">Please speak slowly and use simple English.</p><p class="pr-ja">ゆっくり、簡単な英語で話してください</p><span class="pr-cx">聞き取り</span></li>
+      <li class="pr"><span class="num">11</span><p class="pr-en">Could you say that again?</p><p class="pr-ja">もう一度言ってもらえますか？</p><span class="pr-cx">聞き返し</span></li>
+      <li class="pr"><span class="num">12</span><p class="pr-en">Could you say it more simply?</p><p class="pr-ja">もっと簡単に言ってもらえますか？</p><span class="pr-cx">難しい時</span></li>
+      <li class="pr"><span class="num">13</span><p class="pr-en">Could you write it down?</p><p class="pr-ja">書いてもらえますか？</p><span class="pr-cx">聞き取り</span></li>
+      <li class="pr"><span class="num">14</span><p class="pr-en">I don't understand.</p><p class="pr-ja">分かりません</p><span class="pr-cx">聞き取り</span></li>
+      <li class="pr"><span class="num">15</span><p class="pr-en">Could you help me?</p><p class="pr-ja">手伝ってもらえますか？</p><span class="pr-cx">困った時</span></li>
+      <li class="pr"><span class="num">16</span><p class="pr-en">I need help.</p><p class="pr-ja">助けが必要です</p><span class="pr-cx">トラブル</span></li>
+    </ul>
+    <p class="sub-label">時間を稼ぐ</p>
+    <ul class="prs srank">
+      <li class="pr"><span class="num">17</span><p class="pr-en">Just a moment, please.</p><p class="pr-ja">少し待ってください</p><span class="pr-cx">操作中</span></li>
+      <li class="pr"><span class="num">18</span><p class="pr-en">Just a moment.</p><p class="pr-ja">少し待ってください</p><span class="pr-cx">店等</span></li>
+    </ul>
+    <p class="sub-label">道・場所を探す</p>
+    <ul class="prs srank">
+      <li class="pr"><span class="num">19</span><p class="pr-en">Where is the restroom?</p><p class="pr-ja">トイレはどこですか？</p><span class="pr-cx">どこでも</span></li>
+      <li class="pr"><span class="num">20</span><p class="pr-en">Where is the entrance?</p><p class="pr-ja">入口はどこですか？</p><span class="pr-cx">施設前</span><span class="pr-tip">美術館・劇場・球場</span></li>
+      <li class="pr"><span class="num">21</span><p class="pr-en">Where is the exit?</p><p class="pr-ja">出口はどこですか？</p><span class="pr-cx">施設内</span></li>
+      <li class="pr"><span class="num">22</span><p class="pr-en">I'm looking for this place.</p><p class="pr-ja">この場所を探しています</p><span class="pr-cx">道迷い</span><span class="pr-tip">スマホ地図で示せる</span></li>
+      <li class="pr"><span class="num">23</span><p class="pr-en">How do I get to Times Square?</p><p class="pr-ja">タイムズスクエアへはどう行けばいいですか？</p><span class="pr-cx">道案内</span><span class="pr-tip">地名を変える</span></li>
+    </ul>
+    <p class="sub-label">入場・チケット</p>
+    <ul class="prs srank">
+      <li class="pr"><span class="num">24</span><p class="pr-en">Is this the right line?</p><p class="pr-ja">この列で合っていますか？</p><span class="pr-cx">入場前</span></li>
+      <li class="pr"><span class="num">25</span><p class="pr-en">I have a ticket.</p><p class="pr-ja">チケットを持っています</p><span class="pr-cx">入場時</span><span class="pr-tip">事前取得前提</span></li>
+      <li class="pr"><span class="num">26</span><p class="pr-en">Here is my ticket.</p><p class="pr-ja">チケットはこちらです</p><span class="pr-cx">入場時</span><span class="pr-tip">スマホ提示</span></li>
+      <li class="pr"><span class="num">27</span><p class="pr-en">My ticket is on my phone.</p><p class="pr-ja">チケットはスマホに入っています</p><span class="pr-cx">入場時</span><span class="pr-tip">Googleウォレット等</span></li>
+      <li class="pr"><span class="num">28</span><p class="pr-en">I have it in Google Wallet.</p><p class="pr-ja">Googleウォレットに入っています</p><span class="pr-cx">提示</span><span class="pr-tip">スマホ提示</span></li>
+      <li class="pr"><span class="num">29</span><p class="pr-en">Can you scan this?</p><p class="pr-ja">これをスキャンできますか？</p><span class="pr-cx">QR提示</span></li>
+      <li class="pr"><span class="num">30</span><p class="pr-en">My ticket won't load.</p><p class="pr-ja">チケットが表示されません</p><span class="pr-cx">トラブル</span></li>
+      <li class="pr"><span class="num">31</span><p class="pr-en">Can I step aside for a moment?</p><p class="pr-ja">少し横にずれてもいいですか？</p><span class="pr-cx">入場列</span><span class="pr-tip">焦らないため</span></li>
+    </ul>
+    <p class="sub-label">支払い・予約</p>
+    <ul class="prs srank">
+      <li class="pr"><span class="num">32</span><p class="pr-en">Can I pay by card?</p><p class="pr-ja">カードで払えますか？</p><span class="pr-cx">支払い</span></li>
+      <li class="pr"><span class="num">33</span><p class="pr-en">I'll pay by card.</p><p class="pr-ja">カードで払います</p><span class="pr-cx">支払い</span></li>
+      <li class="pr"><span class="num">34</span><p class="pr-en">Can I tap my card?</p><p class="pr-ja">カードをタッチできますか？</p><span class="pr-cx">タッチ決済</span></li>
+      <li class="pr"><span class="num">35</span><p class="pr-en">Can I get a receipt?</p><p class="pr-ja">レシートをもらえますか？</p><span class="pr-cx">支払い後</span></li>
+      <li class="pr"><span class="num">36</span><p class="pr-en">Here is my reservation.</p><p class="pr-ja">予約はこちらです</p><span class="pr-cx">ホテル/店</span></li>
+    </ul>
+    <p class="sub-label">観光・写真</p>
+    <ul class="prs srank">
+      <li class="pr"><span class="num">37</span><p class="pr-en">Could you take my picture?</p><p class="pr-ja">写真を撮ってもらえますか？</p><span class="pr-cx">観光地</span></li>
+    </ul>
+    <p class="sub-label">緊急時</p>
+    <ul class="prs srank">
+      <li class="pr"><span class="num">38</span><p class="pr-en">Please call 911.</p><p class="pr-ja">911に電話してください</p><span class="pr-cx">緊急時</span></li>
+    </ul>
+  </section>
+
+  <!-- ===== 03 SHOW CARDS ===== -->
+  <section id="cards">
+    <div class="sec-head">
+      <span class="kicker">03</span>
+      <h2>見せる用カード<span class="h2-sub">英語が出てこない時は、この画面をそのまま相手に見せればOK。</span></h2>
+    </div>
+
+    <div class="sc-howto" role="note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+      <span>困ったら<b>この画面を相手に向けて見せてください。</b>相手が英語を読んで対応してくれます。</span>
+    </div>
+
+    <div class="showcards">
+
+      <!-- 1: 通常版 -->
+      <details class="showcard sc-normal" open>
+        <summary class="showcard-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+          <b>通常版</b><span class="tag">まず提示</span>
+          <span class="sc-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </summary>
+        <ul>
+          <li><span class="en">I'm visiting New York from Japan.</span><span class="ja">日本からニューヨークに旅行で来ています。</span></li>
+          <li><span class="en">My English is not good.</span><span class="ja">英語が得意ではありません。</span></li>
+          <li><span class="en">Please speak slowly and use simple English.</span><span class="ja">ゆっくり、簡単な英語で話してください。</span></li>
+          <li><span class="en">Could you help me?</span><span class="ja">手伝ってもらえますか？</span></li>
+          <li><span class="en">Could you write it down?</span><span class="ja">書いてもらえますか？</span></li>
+        </ul>
+      </details>
+
+      <!-- 2: チケット提示版 -->
+      <details class="showcard sc-ticket" open>
+        <summary class="showcard-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7v3a2 2 0 0 1 0 4v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a2 2 0 0 1 0-4V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1Z"/><path d="M13 5v2M13 11v2M13 17v2"/></svg>
+          <b>チケット提示版</b><span class="tag">入場・読取</span>
+          <span class="sc-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </summary>
+        <ul>
+          <li><span class="en">I have a ticket on my phone.</span><span class="ja">チケットはスマホに入っています。</span></li>
+          <li><span class="en">I have it in Google Wallet.</span><span class="ja">Googleウォレットに入っています。</span></li>
+          <li><span class="en">Here is my QR code. Please scan it.</span><span class="ja">QRコードです。スキャンしてください。</span></li>
+          <li><span class="en">My ticket won't load. Please wait a moment.</span><span class="ja">チケットが表示されません。少し待ってください。</span></li>
+          <li><span class="en">If this does not work, could you help me?</span><span class="ja">うまく表示・読取できない場合、手伝ってもらえますか？</span></li>
+        </ul>
+      </details>
+
+      <!-- 3: 迷子・道案内版 -->
+      <details class="showcard sc-lost">
+        <summary class="showcard-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20 3 17V4l6 3 6-3 6 3v13l-6-3-6 3Z"/><path d="M9 7v13M15 4v13"/></svg>
+          <b>迷子・道案内版</b><span class="tag">道に迷ったら</span>
+          <span class="sc-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </summary>
+        <ul>
+          <li><span class="en">I'm lost. Could you help me?</span><span class="ja">道に迷いました。手伝ってもらえますか？</span></li>
+          <li><span class="en">I'm looking for this place. (see map)</span><span class="ja">この場所を探しています。（地図を見せる）</span></li>
+          <li><span class="en">Could you show me on the map?</span><span class="ja">地図で示してもらえますか？</span></li>
+          <li><span class="en">Can I walk there from here?</span><span class="ja">ここから歩いて行けますか？</span></li>
+          <li><span class="en">Is it safe to walk there?</span><span class="ja">そこまで歩いて安全ですか？</span></li>
+        </ul>
+      </details>
+
+      <!-- 4: タクシー・Uber版 -->
+      <details class="showcard sc-taxi">
+        <summary class="showcard-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          <b>タクシー・Uber版</b><span class="tag">乗車時</span>
+          <span class="sc-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </summary>
+        <ul>
+          <li><span class="en">Please take me to this address. (see map)</span><span class="ja">この住所まで連れて行ってください。（地図を見せる）</span></li>
+          <li><span class="en">This is my hotel. Please take me there.</span><span class="ja">これが私のホテルです。連れて行ってください。</span></li>
+          <li><span class="en">Please use the meter.</span><span class="ja">メーターを使ってください。</span></li>
+          <li><span class="en">Can I pay by card?</span><span class="ja">カードで払えますか？</span></li>
+          <li><span class="en">Please drop me off here.</span><span class="ja">ここで降ろしてください。</span></li>
+        </ul>
+      </details>
+
+      <!-- 5: レストラン版 -->
+      <details class="showcard sc-restaurant">
+        <summary class="showcard-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v7a2 2 0 0 0 4 0V2M6 2v9M6 11v11M12 22V2c2 0 4 2 4 6s-2 6-4 6"/></svg>
+          <b>レストラン版</b><span class="tag">入店・注文・会計</span>
+          <span class="sc-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </summary>
+        <ul>
+          <li><span class="en">Table for one, please.</span><span class="ja">1名です。</span></li>
+          <li><span class="en">I'll have this, please. (point to menu)</span><span class="ja">これにします。（メニューを指さす）</span></li>
+          <li><span class="en">I'm allergic to ____. Please check.</span><span class="ja">____アレルギーです。成分を確認してください。</span></li>
+          <li><span class="en">No spicy, please.</span><span class="ja">辛くしないでください。</span></li>
+          <li><span class="en">Can I get the check, please?</span><span class="ja">お会計をお願いします。</span></li>
+          <li><span class="en">I'll pay by card.</span><span class="ja">カードで払います。</span></li>
+        </ul>
+      </details>
+
+      <!-- 6: ホテル版 -->
+      <details class="showcard sc-hotel">
+        <summary class="showcard-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3M9 9v.01M9 12v.01M9 15v.01"/></svg>
+          <b>ホテル版</b><span class="tag">チェックイン・トラブル</span>
+          <span class="sc-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </summary>
+        <ul>
+          <li><span class="en">I have a reservation. Here it is.</span><span class="ja">予約しています。予約内容はこちらです。</span></li>
+          <li><span class="en">My name is Yuki Tensho.</span><span class="ja">私の名前はユウキ テンショウです。</span></li>
+          <li><span class="en">My room key doesn't work.</span><span class="ja">ルームキーが使えません。</span></li>
+          <li><span class="en">I'm locked out of my room.</span><span class="ja">部屋に入れません。</span></li>
+          <li><span class="en">The Wi-Fi is not working in my room.</span><span class="ja">部屋のWi-Fiがつながりません。</span></li>
+          <li><span class="en">Could you send someone to my room?</span><span class="ja">部屋に誰か来てもらえますか？</span></li>
+        </ul>
+      </details>
+
+      <!-- 7: 勧誘を断る版 -->
+      <details class="showcard sc-refuse">
+        <summary class="showcard-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>
+          <b>勧誘を断る版</b><span class="tag">安全</span>
+          <span class="sc-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </summary>
+        <ul>
+          <li><span class="en">No, thank you.</span><span class="ja">いいえ、けっこうです。</span></li>
+          <li><span class="en">I'm not interested.</span><span class="ja">興味ありません。</span></li>
+          <li><span class="en">Please leave me alone.</span><span class="ja">放っておいてください。</span></li>
+          <li><span class="en">Please do not follow me.</span><span class="ja">ついてこないでください。</span></li>
+          <li><span class="en">I'm calling the police.</span><span class="ja">警察を呼びます。</span></li>
+        </ul>
+      </details>
+
+      <!-- 8: 緊急・体調不良版 -->
+      <details class="showcard sc-emergency">
+        <summary class="showcard-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+          <b>緊急・体調不良版</b><span class="tag">体調が悪い時</span>
+          <span class="sc-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </summary>
+        <ul>
+          <li><span class="en">I don't feel well. I need help.</span><span class="ja">体調が悪いです。助けが必要です。</span></li>
+          <li><span class="en">Please call 911.</span><span class="ja">911に電話してください。</span></li>
+          <li><span class="en">Please call an ambulance.</span><span class="ja">救急車を呼んでください。</span></li>
+          <li><span class="en">I need a doctor.</span><span class="ja">医師が必要です。</span></li>
+          <li><span class="en">I need to sit down.</span><span class="ja">座る必要があります。</span></li>
+          <li><span class="en">I need water.</span><span class="ja">水が必要です。</span></li>
+          <li><span class="en">Please contact my hotel.</span><span class="ja">私のホテルに連絡してください。</span></li>
+        </ul>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ===== 04 SCENES ===== -->
+  <section id="scenes">
+    <div class="sec-head">
+      <span class="kicker">04</span>
+      <h2>場面別ガイド 1–15<span class="h2-sub">各カードをタップで開く。色は4つの系統で分類しています。</span></h2>
+      <button class="close-all-btn" id="scenes-close-all" aria-label="すべて閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 11 5-5 5 5M7 17l5-5 5 5"/></svg>
+        全閉じ
+      </button>
+    </div>
+
+    <div class="legend" aria-label="色の凡例">
+      <div class="legend-item">
+        <span class="legend-ic lgA"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="14" rx="2"/><path d="M4 11h16M8 21l2-4M16 21l-2-4M8 7h.01M16 7h.01"/></svg></span>
+        <div><b>移動</b><span>タクシー・地下鉄・空港・街歩き</span></div>
+      </div>
+      <div class="legend-item">
+        <span class="legend-ic lgB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v7a2 2 0 0 0 4 0V2M6 2v9M6 11v11M12 22V2c2 0 4 2 4 6s-2 6-4 6"/></svg></span>
+        <div><b>滞在・食事・買い物</b><span>ホテル・レストラン・支払い</span></div>
+      </div>
+      <div class="legend-item">
+        <span class="legend-ic lgC"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v3a2 2 0 0 1 0 4v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a2 2 0 0 1 0-4V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1Z"/></svg></span>
+        <div><b>観る・入場</b><span>美術館・劇場・MLB・自由の女神・保安検査</span></div>
+      </div>
+      <div class="legend-item">
+        <span class="legend-ic lgD"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg></span>
+        <div><b>困った時・安全</b><span>スマホ/通信・体調・勧誘対応</span></div>
+      </div>
+    </div>
+
+    <div class="scene-cat-bar" role="group" aria-label="場面カテゴリで絞り込む">
+      <button class="scene-cat-btn is-active" data-cat="all">すべて</button>
+      <button class="scene-cat-btn" data-cat="A">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="14" rx="2"/><path d="M4 11h16M8 21l2-4M16 21l-2-4M8 7h.01M16 7h.01"/></svg>
+        移動
+      </button>
+      <button class="scene-cat-btn" data-cat="B">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v7a2 2 0 0 0 4 0V2M6 2v9M6 11v11M12 22V2c2 0 4 2 4 6s-2 6-4 6"/></svg>
+        食事・滞在
+      </button>
+      <button class="scene-cat-btn" data-cat="C">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7v3a2 2 0 0 1 0 4v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a2 2 0 0 1 0-4V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1Z"/></svg>
+        観る・入場
+      </button>
+      <button class="scene-cat-btn" data-cat="D">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+        困った時
+      </button>
+    </div>
+
+    <!-- Scene 1 -->
+    <details class="scene lineB">
+      <summary>
+        <span class="scene-badge">1</span>
+        <span class="scene-meta"><b>支払い・買い物・チップ</b><span><span class="scene-line">買い物</span> カード・レシート・返品</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </summary>
+      <div class="scene-body">
+        <p class="sub-label">支払い</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Can I pay by card?</p><p class="pr-ja">カードで払えますか？</p><span class="pr-cx">支払い</span></li>
+          <li class="pr"><p class="pr-en">I'll pay by card.</p><p class="pr-ja">カードで払います</p><span class="pr-cx">支払い</span></li>
+          <li class="pr"><p class="pr-en">Can I tap my card?</p><p class="pr-ja">カードをタッチできますか？</p><span class="pr-cx">支払い</span></li>
+          <li class="pr"><p class="pr-en">Do I need to sign?</p><p class="pr-ja">サインが必要ですか？</p><span class="pr-cx">カード</span></li>
+          <li class="pr"><p class="pr-en">Do I need to enter my PIN?</p><p class="pr-ja">PIN入力が必要ですか？</p><span class="pr-cx">カード</span></li>
+          <li class="pr"><p class="pr-en">Can I get a receipt?</p><p class="pr-ja">レシートをもらえますか？</p><span class="pr-cx">支払い後</span></li>
+          <li class="pr"><p class="pr-en">Can I get an itemized receipt?</p><p class="pr-ja">明細付きレシートをもらえますか？</p><span class="pr-cx">明細確認</span></li>
+          <li class="pr"><p class="pr-en">I think I was charged twice.</p><p class="pr-ja">二重に請求されたと思います</p><span class="pr-cx">トラブル</span></li>
+          <li class="pr"><p class="pr-en">Can I try another card?</p><p class="pr-ja">別のカードを試していいですか？</p><span class="pr-cx">カード不具合</span></li>
+          <li class="pr"><p class="pr-en">Is tip included?</p><p class="pr-ja">チップは含まれていますか？</p><span class="pr-cx">会計時</span></li>
+        </ul>
+        <p class="sub-label">買い物</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">I'm just looking, thanks.</p><p class="pr-ja">見ているだけです、ありがとう</p><span class="pr-cx">店員対応</span></li>
+          <li class="pr"><p class="pr-en">I'm still thinking.</p><p class="pr-ja">まだ考えています</p><span class="pr-cx">店員対応</span></li>
+          <li class="pr"><p class="pr-en">How much is this?</p><p class="pr-ja">これはいくらですか？</p><span class="pr-cx">値段確認</span></li>
+          <li class="pr"><p class="pr-en">Can I see this one?</p><p class="pr-ja">これを見せてもらえますか？</p><span class="pr-cx">商品確認</span></li>
+          <li class="pr"><p class="pr-en">Do you have this in stock?</p><p class="pr-ja">これは在庫がありますか？</p><span class="pr-cx">在庫確認</span></li>
+          <li class="pr"><p class="pr-en">Can I try this on?</p><p class="pr-ja">試着できますか？</p><span class="pr-cx">服</span></li>
+          <li class="pr"><p class="pr-en">I'll take this one.</p><p class="pr-ja">これを買います</p><span class="pr-cx">購入</span></li>
+          <li class="pr"><p class="pr-en">I don't need a bag.</p><p class="pr-ja">袋はいりません</p><span class="pr-cx">会計</span></li>
+          <li class="pr"><p class="pr-en">Can I get a small bag?</p><p class="pr-ja">小さい袋をもらえますか？</p><span class="pr-cx">会計</span></li>
+          <li class="pr"><p class="pr-en">Can I return this if it doesn't fit?</p><p class="pr-ja">サイズが合わなければ返品できますか？</p><span class="pr-cx">購入前</span></li>
+          <li class="pr"><p class="pr-en">Can I get a gift receipt?</p><p class="pr-ja">ギフト用レシートをもらえますか？</p><span class="pr-cx">お土産</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Scene 2 -->
+    <details class="scene lineB">
+      <summary>
+        <span class="scene-badge">2</span>
+        <span class="scene-meta"><b>レストラン</b><span><span class="scene-line">食事</span> 入店・注文・会計</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </summary>
+      <div class="scene-body">
+        <p class="sub-label">入店・注文</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Table for one, please.</p><p class="pr-ja">1人です</p><span class="pr-cx">入店時</span></li>
+          <li class="pr"><p class="pr-en">I have a reservation.</p><p class="pr-ja">予約しています</p><span class="pr-cx">入店時</span></li>
+          <li class="pr"><p class="pr-en">I don't have a reservation.</p><p class="pr-ja">予約していません</p><span class="pr-cx">入店時</span></li>
+          <li class="pr"><p class="pr-en">Can I sit at the bar?</p><p class="pr-ja">カウンター席に座れますか？</p><span class="pr-cx">一人利用</span></li>
+          <li class="pr"><p class="pr-en">Can I see the menu?</p><p class="pr-ja">メニューを見せてもらえますか？</p><span class="pr-cx">着席後</span></li>
+          <li class="pr"><p class="pr-en">What do you recommend?</p><p class="pr-ja">おすすめは何ですか？</p><span class="pr-cx">注文前</span></li>
+          <li class="pr"><p class="pr-en">I'm ready to order.</p><p class="pr-ja">注文できます</p><span class="pr-cx">店員を呼ぶ</span><span class="pr-tip">手を軽く上げて</span></li>
+          <li class="pr"><p class="pr-en">I need a little more time.</p><p class="pr-ja">もう少し時間がほしいです</p><span class="pr-cx">未決</span></li>
+          <li class="pr"><p class="pr-en">I'm still thinking.</p><p class="pr-ja">まだ考えています</p><span class="pr-cx">未決</span></li>
+          <li class="pr"><p class="pr-en">I'll have this.</p><p class="pr-ja">これにします</p><span class="pr-cx">指さし</span></li>
+          <li class="pr"><p class="pr-en">Can I get this?</p><p class="pr-ja">これをください</p><span class="pr-cx">注文時</span></li>
+        </ul>
+        <p class="sub-label">食事中・会計</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Can I get some water?</p><p class="pr-ja">水をもらえますか？</p><span class="pr-cx">着席後</span></li>
+          <li class="pr"><p class="pr-en">Tap water, please.</p><p class="pr-ja">水道水でお願いします</p><span class="pr-cx">無料水</span></li>
+          <li class="pr"><p class="pr-en">No ice, please.</p><p class="pr-ja">氷なしでお願いします</p><span class="pr-cx">飲み物</span></li>
+          <li class="pr"><p class="pr-en">On the side, please.</p><p class="pr-ja">別添えでお願いします</p><span class="pr-cx">ソース等</span></li>
+          <li class="pr"><p class="pr-en">Not spicy, please.</p><p class="pr-ja">辛くしないでください</p><span class="pr-cx">注文</span></li>
+          <li class="pr"><p class="pr-en">Is this too much for one person?</p><p class="pr-ja">これは1人には多すぎますか？</p><span class="pr-cx">量確認</span></li>
+          <li class="pr"><p class="pr-en">Can I get a box?</p><p class="pr-ja">持ち帰り用の箱をください</p><span class="pr-cx">食後</span></li>
+          <li class="pr"><p class="pr-en">Can I get the check, please?</p><p class="pr-ja">お会計をお願いします</p><span class="pr-cx">支払い時</span><span class="pr-tip">米国では check</span></li>
+          <li class="pr"><p class="pr-en">Is tip included?</p><p class="pr-ja">チップは含まれていますか？</p><span class="pr-cx">会計時</span></li>
+          <li class="pr"><p class="pr-en">I'll pay by card.</p><p class="pr-ja">カードで払います</p><span class="pr-cx">支払い</span></li>
+          <li class="pr"><p class="pr-en">Can I tap my card?</p><p class="pr-ja">カードをタッチできますか？</p><span class="pr-cx">タッチ決済</span></li>
+          <li class="pr"><p class="pr-en">Everything is good.</p><p class="pr-ja">すべて大丈夫です</p><span class="pr-cx">食事中</span><span class="pr-tip">How is everything? への返答</span></li>
+        </ul>
+        <p class="sub-label">誤配膳・トラブル</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">I think this is not mine.</p><p class="pr-ja">これは私のものではないと思います</p><span class="pr-cx">誤配膳</span></li>
+          <li class="pr"><p class="pr-en">I ordered this.</p><p class="pr-ja">これを注文しました</p><span class="pr-cx">注文確認</span></li>
+          <li class="pr"><p class="pr-en">I didn't order this.</p><p class="pr-ja">これは注文していません</p><span class="pr-cx">誤配膳</span></li>
+          <li class="pr"><p class="pr-en">Could you check this?</p><p class="pr-ja">これを確認してもらえますか？</p><span class="pr-cx">会計ミス</span></li>
+          <li class="pr"><p class="pr-en">I think there may be a mistake.</p><p class="pr-ja">間違いがあるかもしれません</p><span class="pr-cx">会計時</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Scene 3 -->
+    <details class="scene lineA">
+      <summary>
+        <span class="scene-badge">3</span>
+        <span class="scene-meta"><b>街歩き・道案内</b><span><span class="scene-line">移動</span> 道を聞く・安全確認・写真</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </summary>
+      <div class="scene-body">
+        <p class="sub-label">道を聞く</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">How do I get to Times Square?</p><p class="pr-ja">タイムズスクエアへはどう行けばいいですか？</p><span class="pr-cx">道案内</span><span class="pr-tip">地名を変える</span></li>
+          <li class="pr"><p class="pr-en">Which way is Central Park?</p><p class="pr-ja">セントラルパークはどちらですか？</p><span class="pr-cx">道案内</span><span class="pr-tip">which way</span></li>
+          <li class="pr"><p class="pr-en">Is it far from here?</p><p class="pr-ja">ここから遠いですか？</p><span class="pr-cx">距離確認</span></li>
+          <li class="pr"><p class="pr-en">Can I walk there?</p><p class="pr-ja">歩いて行けますか？</p><span class="pr-cx">移動判断</span></li>
+          <li class="pr"><p class="pr-en">How long does it take to walk?</p><p class="pr-ja">歩くとどれくらいですか？</p><span class="pr-cx">徒歩時間</span></li>
+          <li class="pr"><p class="pr-en">Is this area safe?</p><p class="pr-ja">この辺りは安全ですか？</p><span class="pr-cx">初見エリア</span><span class="pr-tip">ホテルで聞くとよい</span></li>
+          <li class="pr"><p class="pr-en">Is it safe to walk at night?</p><p class="pr-ja">夜に歩いても安全ですか？</p><span class="pr-cx">夜移動前</span></li>
+          <li class="pr"><p class="pr-en">Can you show me on the map?</p><p class="pr-ja">地図で示してもらえますか？</p><span class="pr-cx">道案内</span><span class="pr-tip">スマホ地図</span></li>
+          <li class="pr"><p class="pr-en">I think I'm lost.</p><p class="pr-ja">道に迷ったようです</p><span class="pr-cx">困った時</span></li>
+          <li class="pr"><p class="pr-en">Am I close?</p><p class="pr-ja">近くまで来ていますか？</p><span class="pr-cx">迷った時</span></li>
+        </ul>
+        <p class="sub-label">写真</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Could you take my picture?</p><p class="pr-ja">写真を撮ってもらえますか？</p><span class="pr-cx">観光地</span></li>
+          <li class="pr"><p class="pr-en">One more, please.</p><p class="pr-ja">もう1枚お願いします</p><span class="pr-cx">写真</span></li>
+          <li class="pr"><p class="pr-en">Could you include the building?</p><p class="pr-ja">建物を入れてもらえますか？</p><span class="pr-cx">写真</span></li>
+          <li class="pr"><p class="pr-en">Vertical, please.</p><p class="pr-ja">縦でお願いします。</p><span class="pr-cx">スマホ撮影</span></li>
+          <li class="pr"><p class="pr-en">Horizontal, please.</p><p class="pr-ja">横でお願いします。</p><span class="pr-cx">風景</span></li>
+          <li class="pr"><p class="pr-en">Thank you, that's great.</p><p class="pr-ja">ありがとう、十分です</p><span class="pr-cx">写真後</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Scene 4 -->
+    <details class="scene lineB">
+      <summary>
+        <span class="scene-badge">4</span>
+        <span class="scene-meta"><b>ホテル</b><span><span class="scene-line">滞在</span> チェックイン・部屋トラブル</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </summary>
+      <div class="scene-body">
+        <p class="sub-label">チェックイン・荷物</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Hi, I have a reservation.</p><p class="pr-ja">予約しています</p><span class="pr-cx">受付</span><span class="pr-tip">最初の一言</span></li>
+          <li class="pr"><p class="pr-en">My name is Yuki Tensho.</p><p class="pr-ja">私の名前はユウキ テンショウです。</p><span class="pr-cx">予約確認</span></li>
+          <li class="pr"><p class="pr-en">Here is my passport.</p><p class="pr-ja">パスポートです</p><span class="pr-cx">本人確認</span></li>
+          <li class="pr"><p class="pr-en">Here is my credit card.</p><p class="pr-ja">クレジットカードです</p><span class="pr-cx">デポジット</span></li>
+          <li class="pr"><p class="pr-en">Can I check in now?</p><p class="pr-ja">今チェックインできますか？</p><span class="pr-cx">早着</span></li>
+          <li class="pr"><p class="pr-en">Can I leave my luggage here?</p><p class="pr-ja">荷物をここに預けられますか？</p><span class="pr-cx">前後</span></li>
+          <li class="pr"><p class="pr-en">What time is check-in?</p><p class="pr-ja">チェックインは何時ですか？</p><span class="pr-cx">到着時</span></li>
+          <li class="pr"><p class="pr-en">What time is check-out?</p><p class="pr-ja">チェックアウトは何時ですか？</p><span class="pr-cx">滞在中</span></li>
+          <li class="pr"><p class="pr-en">Can I get a late check-out?</p><p class="pr-ja">レイトチェックアウトできますか？</p><span class="pr-cx">出発日</span></li>
+          <li class="pr"><p class="pr-en">Can you call a taxi for me?</p><p class="pr-ja">タクシーを呼んでもらえますか？</p><span class="pr-cx">出発時</span></li>
+          <li class="pr"><p class="pr-en">What is the Wi-Fi password?</p><p class="pr-ja">Wi-Fiのパスワードは何ですか？</p><span class="pr-cx">チェックイン</span></li>
+        </ul>
+        <p class="sub-label">部屋トラブル</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">My room key doesn't work.</p><p class="pr-ja">ルームキーが使えません</p><span class="pr-cx">フロント</span></li>
+          <li class="pr"><p class="pr-en">I'm locked out.</p><p class="pr-ja">部屋に入れません</p><span class="pr-cx">キー不具合</span></li>
+          <li class="pr"><p class="pr-en">The Wi-Fi is not working.</p><p class="pr-ja">Wi-Fiがつながりません</p><span class="pr-cx">部屋</span></li>
+          <li class="pr"><p class="pr-en">There is no hot water.</p><p class="pr-ja">お湯が出ません</p><span class="pr-cx">部屋</span></li>
+          <li class="pr"><p class="pr-en">The air conditioner is not working.</p><p class="pr-ja">エアコンが動きません</p><span class="pr-cx">部屋</span></li>
+          <li class="pr"><p class="pr-en">The room is too noisy.</p><p class="pr-ja">部屋がうるさいです</p><span class="pr-cx">部屋</span></li>
+          <li class="pr"><p class="pr-en">Can I change rooms?</p><p class="pr-ja">部屋を変えられますか？</p><span class="pr-cx">トラブル</span></li>
+          <li class="pr"><p class="pr-en">The toilet is clogged.</p><p class="pr-ja">トイレが詰まっています</p><span class="pr-cx">部屋</span></li>
+          <li class="pr"><p class="pr-en">Can I get extra towels?</p><p class="pr-ja">タオルを追加でもらえますか？</p><span class="pr-cx">客室</span></li>
+          <li class="pr"><p class="pr-en">Could you send someone to my room?</p><p class="pr-ja">部屋に誰か来てもらえますか？</p><span class="pr-cx">修理依頼</span></li>
+        </ul>
+        <p class="sub-label">出かける・戻る</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">I'm heading out now.</p><p class="pr-ja">これから出かけます</p><span class="pr-cx">外出時</span><span class="pr-tip">「行ってきます」に近い自然な表現</span></li>
+          <li class="pr"><p class="pr-en">See you later.</p><p class="pr-ja">またあとで</p><span class="pr-cx">外出時</span></li>
+          <li class="pr"><p class="pr-en">I'm back.</p><p class="pr-ja">戻りました</p><span class="pr-cx">帰館時</span><span class="pr-tip">顔なじみになったら自然</span></li>
+          <li class="pr"><p class="pr-en">Good evening. I'm back.</p><p class="pr-ja">こんばんは。戻りました</p><span class="pr-cx">夕方・夜帰館</span></li>
+          <li class="pr"><p class="pr-en">I had a great day.</p><p class="pr-ja">いい一日でした</p><span class="pr-cx">帰館後の会話</span></li>
+        </ul>
+        <p class="sub-label">手土産を渡す</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">This is a small gift from Japan. Please share it with the staff.</p><p class="pr-ja">日本からの小さなお土産です。スタッフの皆さんで分けてください。</p><span class="pr-cx">渡す時</span><span class="pr-tip">押しつけ感を避ける安全な表現</span></li>
+          <li class="pr"><p class="pr-en">Please share it with the staff.</p><p class="pr-ja">スタッフの皆さんで分けてください</p><span class="pr-cx">フロント全体へ</span><span class="pr-tip">個人宛より受け取りやすい</span></li>
+          <li class="pr"><p class="pr-en">Thank you for your help.</p><p class="pr-ja">助けてくれてありがとうございます</p><span class="pr-cx">渡す時</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Scene 5 -->
+    <details class="scene lineA">
+      <summary>
+        <span class="scene-badge">5</span>
+        <span class="scene-meta"><b>タクシー・配車</b><span><span class="scene-line">移動</span> 乗車・降車・支払い</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </summary>
+      <div class="scene-body">
+        <p class="sub-label">まず使う</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Can you take me to this address?</p><p class="pr-ja">この住所までお願いします</p><span class="pr-cx">乗車時</span><span class="pr-tip">住所を見せる</span></li>
+          <li class="pr"><p class="pr-en">I'm going to this hotel.</p><p class="pr-ja">このホテルに行きます</p><span class="pr-cx">ホテルへ</span><span class="pr-tip">ホテル名を見せる</span></li>
+          <li class="pr"><p class="pr-en">Here is the address.</p><p class="pr-ja">住所はこちらです</p><span class="pr-cx">乗車時</span><span class="pr-tip">画面提示</span></li>
+          <li class="pr"><p class="pr-en">How long will it take?</p><p class="pr-ja">どれくらいかかりますか？</p><span class="pr-cx">所要確認</span></li>
+          <li class="pr"><p class="pr-en">How much will it be?</p><p class="pr-ja">いくらくらいですか？</p><span class="pr-cx">料金確認</span></li>
+          <li class="pr"><p class="pr-en">Here is fine.</p><p class="pr-ja">ここで大丈夫です</p><span class="pr-cx">降車時</span></li>
+          <li class="pr"><p class="pr-en">Could you drop me off here?</p><p class="pr-ja">ここで降ろしてください</p><span class="pr-cx">降車時</span></li>
+          <li class="pr"><p class="pr-en">Can I pay by card?</p><p class="pr-ja">カードで払えますか？</p><span class="pr-cx">支払い</span></li>
+          <li class="pr"><p class="pr-en">Can I get a receipt?</p><p class="pr-ja">レシートをもらえますか？</p><span class="pr-cx">支払い後</span></li>
+          <li class="pr"><p class="pr-en">Can you open the trunk?</p><p class="pr-ja">トランクを開けてもらえますか？</p><span class="pr-cx">荷物</span><span class="pr-tip">trunk＝荷室</span></li>
+        </ul>
+        <p class="sub-label">追加で便利</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">I have luggage.</p><p class="pr-ja">荷物があります</p><span class="pr-cx">乗車前</span></li>
+          <li class="pr"><p class="pr-en">Please use the meter.</p><p class="pr-ja">メーターでお願いします</p><span class="pr-cx">通常タクシー</span></li>
+          <li class="pr"><p class="pr-en">I'm in a hurry.</p><p class="pr-ja">急いでいます</p><span class="pr-cx">時間がない</span></li>
+          <li class="pr"><p class="pr-en">Please drive safely.</p><p class="pr-ja">安全運転でお願いします</p><span class="pr-cx">運転が荒い</span></li>
+          <li class="pr"><p class="pr-en">I'll tip on the card.</p><p class="pr-ja">チップはカードで払います</p><span class="pr-cx">支払い時</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Scene 6 -->
+    <details class="scene lineA">
+      <summary>
+        <span class="scene-badge">6</span>
+        <span class="scene-meta"><b>地下鉄・移動</b><span><span class="scene-line">移動</span> 方向・ホーム・乗換</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </summary>
+      <div class="scene-body">
+        <p class="sub-label">駅・電車の確認</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Where is the subway station?</p><p class="pr-ja">地下鉄の駅はどこですか？</p><span class="pr-cx">駅探し</span></li>
+          <li class="pr"><p class="pr-en">Which way to the subway?</p><p class="pr-ja">地下鉄はどちらですか？</p><span class="pr-cx">道案内</span></li>
+          <li class="pr"><p class="pr-en">Does this train go to Times Square?</p><p class="pr-ja">この電車はタイムズスクエアに行きますか？</p><span class="pr-cx">乗車前</span><span class="pr-tip">地名を変える</span></li>
+          <li class="pr"><p class="pr-en">Is this the uptown train?</p><p class="pr-ja">これはアップタウン行きですか？</p><span class="pr-cx">方向</span><span class="pr-tip">北方面</span></li>
+          <li class="pr"><p class="pr-en">Is this the downtown train?</p><p class="pr-ja">これはダウンタウン行きですか？</p><span class="pr-cx">方向</span><span class="pr-tip">南方面</span></li>
+          <li class="pr"><p class="pr-en">Which train should I take?</p><p class="pr-ja">どの電車に乗ればいいですか？</p><span class="pr-cx">迷った時</span></li>
+          <li class="pr"><p class="pr-en">Which platform should I go to?</p><p class="pr-ja">どのホームに行けばいいですか？</p><span class="pr-cx">駅構内</span></li>
+          <li class="pr"><p class="pr-en">Which track should I go to?</p><p class="pr-ja">どの番線に行けばいいですか？</p><span class="pr-cx">駅構内</span></li>
+          <li class="pr"><p class="pr-en">Is this the right platform?</p><p class="pr-ja">このホームで合っていますか？</p><span class="pr-cx">乗車前</span></li>
+          <li class="pr"><p class="pr-en">Do I need to transfer?</p><p class="pr-ja">乗り換えが必要ですか？</p><span class="pr-cx">経路確認</span></li>
+          <li class="pr"><p class="pr-en">How many stops?</p><p class="pr-ja">何駅ですか？</p><span class="pr-cx">所要確認</span></li>
+        </ul>
+        <p class="sub-label">NYC地下鉄で特に重要</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Is this express or local?</p><p class="pr-ja">これは急行ですか？各駅ですか？</p><span class="pr-cx">停車確認</span></li>
+          <li class="pr"><p class="pr-en">I need the local train.</p><p class="pr-ja">各駅停車に乗りたいです</p><span class="pr-cx">各駅</span></li>
+          <li class="pr"><p class="pr-en">Can I tap my card here?</p><p class="pr-ja">ここでカードをタッチできますか？</p><span class="pr-cx">改札</span></li>
+          <li class="pr"><p class="pr-en">My card didn't work.</p><p class="pr-ja">カードが反応しませんでした</p><span class="pr-cx">改札トラブル</span></li>
+          <li class="pr"><p class="pr-en">Is it safe to take this train at night?</p><p class="pr-ja">夜にこの電車に乗っても安全ですか？</p><span class="pr-cx">夜移動前</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Scene 7 -->
+    <details class="scene lineC">
+      <summary>
+        <span class="scene-badge">7</span>
+        <span class="scene-meta"><b>美術館</b><span><span class="scene-line">入場</span> 入館・クローク・館内</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </summary>
+      <div class="scene-body">
+        <p class="sub-label">入館・チケット</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">I have a ticket.</p><p class="pr-ja">チケットを持っています</p><span class="pr-cx">入館時</span><span class="pr-tip">スマホ提示</span></li>
+          <li class="pr"><p class="pr-en">I have a ticket for 10 a.m.</p><p class="pr-ja">10時のチケットを持っています</p><span class="pr-cx">時間指定</span><span class="pr-tip">時刻を変える</span></li>
+          <li class="pr"><p class="pr-en">Here is my ticket.</p><p class="pr-ja">チケットはこちらです</p><span class="pr-cx">入館時</span><span class="pr-tip">Googleウォレット等</span></li>
+          <li class="pr"><p class="pr-en">Can you scan this?</p><p class="pr-ja">これをスキャンできますか？</p><span class="pr-cx">QR提示</span></li>
+          <li class="pr"><p class="pr-en">Is this the line for ticket holders?</p><p class="pr-ja">これはチケット保持者の列ですか？</p><span class="pr-cx">列確認</span></li>
+          <li class="pr"><p class="pr-en">Where is the entrance?</p><p class="pr-ja">入口はどこですか？</p><span class="pr-cx">建物前</span></li>
+          <li class="pr"><p class="pr-en">Where is the coat check?</p><p class="pr-ja">クロークはどこですか？</p><span class="pr-cx">荷物預け</span><span class="pr-tip">coat check</span></li>
+          <li class="pr"><p class="pr-en">Do I need to check my bag here?</p><p class="pr-ja">ここでバッグを預ける必要がありますか？</p><span class="pr-cx">入館時</span><span class="pr-tip">bag policy</span></li>
+          <li class="pr"><p class="pr-en">Can I re-enter later?</p><p class="pr-ja">後で再入場できますか？</p><span class="pr-cx">一時退出</span><span class="pr-tip">re-enter</span></li>
+          <li class="pr"><p class="pr-en">Where is the museum map?</p><p class="pr-ja">館内マップはどこですか？</p><span class="pr-cx">入館後</span></li>
+        </ul>
+        <p class="sub-label">館内</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Where is this painting?</p><p class="pr-ja">この絵はどこですか？</p><span class="pr-cx">作品探し</span></li>
+          <li class="pr"><p class="pr-en">Could you show me on the map?</p><p class="pr-ja">地図で教えてもらえますか？</p><span class="pr-cx">作品探し</span></li>
+          <li class="pr"><p class="pr-en">Do you have an audio guide in Japanese?</p><p class="pr-ja">日本語の音声ガイドはありますか？</p><span class="pr-cx">受付</span></li>
+          <li class="pr"><p class="pr-en">Can I take photos here?</p><p class="pr-ja">ここで写真を撮れますか？</p><span class="pr-cx">展示室</span></li>
+          <li class="pr"><p class="pr-en">No flash, right?</p><p class="pr-ja">フラッシュなしですよね？</p><span class="pr-cx">撮影確認</span></li>
+          <li class="pr"><p class="pr-en">Where is the gift shop?</p><p class="pr-ja">ミュージアムショップはどこですか？</p><span class="pr-cx">買い物</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Scene 8 -->
+    <details class="scene lineC">
+      <summary>
+        <span class="scene-badge">8</span>
+        <span class="scene-meta"><b>ミュージカル</b><span><span class="scene-line">入場</span> 開場・座席・劇場内</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </summary>
+      <div class="scene-body">
+        <p class="sub-label">入場・座席</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">I have a ticket.</p><p class="pr-ja">チケットを持っています</p><span class="pr-cx">劇場入口</span><span class="pr-tip">スマホ提示</span></li>
+          <li class="pr"><p class="pr-en">Here is my ticket.</p><p class="pr-ja">チケットはこちらです</p><span class="pr-cx">入場時</span><span class="pr-tip">Googleウォレット等</span></li>
+          <li class="pr"><p class="pr-en">Can you scan this?</p><p class="pr-ja">これをスキャンできますか？</p><span class="pr-cx">入場時</span><span class="pr-tip">QR提示</span></li>
+          <li class="pr"><p class="pr-en">Is this the line for this show?</p><p class="pr-ja">これはこの公演の列ですか？</p><span class="pr-cx">開場前</span><span class="pr-tip">劇場前で便利</span></li>
+          <li class="pr"><p class="pr-en">What time do the doors open?</p><p class="pr-ja">開場は何時ですか？</p><span class="pr-cx">早着</span><span class="pr-tip">doors open</span></li>
+          <li class="pr"><p class="pr-en">What time does the show start?</p><p class="pr-ja">開演は何時ですか？</p><span class="pr-cx">開演確認</span></li>
+          <li class="pr"><p class="pr-en">Can you help me find my seat?</p><p class="pr-ja">席を探すのを手伝ってもらえますか？</p><span class="pr-cx">入場後</span></li>
+          <li class="pr"><p class="pr-en">Could you help me find my seat?</p><p class="pr-ja">席を探すのを手伝ってもらえますか？</p><span class="pr-cx">案内係へ</span></li>
+          <li class="pr"><p class="pr-en">Is there an intermission?</p><p class="pr-ja">休憩はありますか？</p><span class="pr-cx">公演前</span><span class="pr-tip">intermission</span></li>
+          <li class="pr"><p class="pr-en">How long is the show?</p><p class="pr-ja">上演時間はどれくらいですか？</p><span class="pr-cx">予定確認</span></li>
+        </ul>
+        <p class="sub-label">劇場内</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Can I bring this inside?</p><p class="pr-ja">これを中に持ち込めますか？</p><span class="pr-cx">入場時</span></li>
+          <li class="pr"><p class="pr-en">Can I take photos here?</p><p class="pr-ja">ここで写真を撮れますか？</p><span class="pr-cx">ロビー等</span></li>
+          <li class="pr"><p class="pr-en">Are photos allowed before the show?</p><p class="pr-ja">開演前の写真は可能ですか？</p><span class="pr-cx">客席</span></li>
+          <li class="pr"><p class="pr-en">Where can I buy a program?</p><p class="pr-ja">パンフレットはどこで買えますか？</p><span class="pr-cx">グッズ</span></li>
+          <li class="pr"><p class="pr-en">That was amazing.</p><p class="pr-ja">すばらしかったです</p><span class="pr-cx">終演後</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Scene 9 -->
+    <details class="scene lineC">
+      <summary>
+        <span class="scene-badge">9</span>
+        <span class="scene-meta"><b>MLB観戦</b><span><span class="scene-line">入場</span> ゲート・セクション・売店</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </summary>
+      <div class="scene-body">
+        <p class="sub-label">入場・席</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">I have a ticket.</p><p class="pr-ja">チケットを持っています</p><span class="pr-cx">入場時</span><span class="pr-tip">スマホ提示</span></li>
+          <li class="pr"><p class="pr-en">Here is my ticket.</p><p class="pr-ja">チケットはこちらです</p><span class="pr-cx">入場ゲート</span><span class="pr-tip">Googleウォレット等</span></li>
+          <li class="pr"><p class="pr-en">Which gate should I use?</p><p class="pr-ja">どのゲートを使えばいいですか？</p><span class="pr-cx">球場前</span><span class="pr-tip">gate確認</span></li>
+          <li class="pr"><p class="pr-en">Where is Gate 6?</p><p class="pr-ja">6番ゲートはどこですか？</p><span class="pr-cx">球場前</span><span class="pr-tip">番号を変える</span></li>
+          <li class="pr"><p class="pr-en">Is this the right gate?</p><p class="pr-ja">このゲートで合っていますか？</p><span class="pr-cx">入場前</span></li>
+          <li class="pr"><p class="pr-en">Can I bring this bag in?</p><p class="pr-ja">このバッグは持ち込めますか？</p><span class="pr-cx">手荷物検査</span></li>
+          <li class="pr"><p class="pr-en">Which way to Section 123?</p><p class="pr-ja">123セクションはどちらですか？</p><span class="pr-cx">入場後</span></li>
+          <li class="pr"><p class="pr-en">Which way to Section 123?</p><p class="pr-ja">123セクションはどちらですか？</p><span class="pr-cx">球場内</span><span class="pr-tip">数字を変える</span></li>
+          <li class="pr"><p class="pr-en">Could you help me find my seat?</p><p class="pr-ja">席を探すのを手伝ってもらえますか？</p><span class="pr-cx">係員へ</span></li>
+          <li class="pr"><p class="pr-en">Where is the team store?</p><p class="pr-ja">チームショップはどこですか？</p><span class="pr-cx">グッズ</span><span class="pr-tip">Yankees等</span></li>
+        </ul>
+        <p class="sub-label">試合中・売店</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Can I get a hot dog?</p><p class="pr-ja">ホットドッグをください</p><span class="pr-cx">売店</span></li>
+          <li class="pr"><p class="pr-en">Can I get a bottle of water?</p><p class="pr-ja">水を1本ください</p><span class="pr-cx">売店</span></li>
+          <li class="pr"><p class="pr-en">What inning is it?</p><p class="pr-ja">今、何回ですか？</p><span class="pr-cx">試合中</span></li>
+          <li class="pr"><p class="pr-en">What's the score?</p><p class="pr-ja">スコアは何対何ですか？</p><span class="pr-cx">試合中</span></li>
+          <li class="pr"><p class="pr-en">Who is pitching?</p><p class="pr-ja">誰が投げていますか？</p><span class="pr-cx">試合中</span></li>
+          <li class="pr"><p class="pr-en">Can I take a photo here?</p><p class="pr-ja">ここで写真を撮ってもいいですか？</p><span class="pr-cx">球場内</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Scene 10 -->
+    <details class="scene lineC">
+      <summary>
+        <span class="scene-badge">10</span>
+        <span class="scene-meta"><b>自由の女神・フェリー</b><span><span class="scene-line">入場</span> 乗船・台座・帰り</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </summary>
+      <div class="scene-body">
+        <p class="sub-label">乗船・入場</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">I have a ticket.</p><p class="pr-ja">チケットを持っています</p><span class="pr-cx">乗船前</span><span class="pr-tip">公式チケット</span></li>
+          <li class="pr"><p class="pr-en">I have a pedestal ticket.</p><p class="pr-ja">台座入場チケットを持っています</p><span class="pr-cx">入場確認</span><span class="pr-tip">pedestal</span></li>
+          <li class="pr"><p class="pr-en">Here is my ticket.</p><p class="pr-ja">チケットはこちらです</p><span class="pr-cx">係員へ</span><span class="pr-tip">スマホ提示</span></li>
+          <li class="pr"><p class="pr-en">Where is the line for Liberty Island?</p><p class="pr-ja">リバティ島行きの列はどこですか？</p><span class="pr-cx">乗船前</span></li>
+          <li class="pr"><p class="pr-en">Is this the line for the ferry?</p><p class="pr-ja">これはフェリーの列ですか？</p><span class="pr-cx">列確認</span></li>
+          <li class="pr"><p class="pr-en">Where is security?</p><p class="pr-ja">セキュリティチェックはどこですか？</p><span class="pr-cx">乗船前</span><span class="pr-tip">security</span></li>
+          <li class="pr"><p class="pr-en">Is this ferry going to Liberty Island?</p><p class="pr-ja">このフェリーはリバティ島に行きますか？</p><span class="pr-cx">乗船前</span><span class="pr-tip">行先確認</span></li>
+          <li class="pr"><p class="pr-en">Where do I board the ferry?</p><p class="pr-ja">フェリーはどこから乗りますか？</p><span class="pr-cx">乗船時</span><span class="pr-tip">board</span></li>
+          <li class="pr"><p class="pr-en">Where should I get off?</p><p class="pr-ja">どこで降りればいいですか？</p><span class="pr-cx">船内・島内</span><span class="pr-tip">get off</span></li>
+          <li class="pr"><p class="pr-en">What time is the next ferry?</p><p class="pr-ja">次のフェリーは何時ですか？</p><span class="pr-cx">帰り</span></li>
+        </ul>
+        <p class="sub-label">島内</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Where is the return ferry?</p><p class="pr-ja">帰りのフェリーはどこですか？</p><span class="pr-cx">島内</span></li>
+          <li class="pr"><p class="pr-en">How long is the wait?</p><p class="pr-ja">待ち時間はどれくらいですか？</p><span class="pr-cx">列</span></li>
+          <li class="pr"><p class="pr-en">Where is the entrance to the pedestal?</p><p class="pr-ja">台座入口はどこですか？</p><span class="pr-cx">島内</span></li>
+          <li class="pr"><p class="pr-en">Can I go up to the pedestal with this ticket?</p><p class="pr-ja">このチケットで台座に上がれますか？</p><span class="pr-cx">台座確認</span></li>
+          <li class="pr"><p class="pr-en">Could you take my picture?</p><p class="pr-ja">写真を撮ってもらえますか？</p><span class="pr-cx">記念撮影</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Scene 11 -->
+    <details class="scene lineA">
+      <summary>
+        <span class="scene-badge">11</span>
+        <span class="scene-meta"><b>空港・入国・荷物</b><span><span class="scene-line">移動</span> 入国審査・税関・受取所</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </summary>
+      <div class="scene-body">
+        <p class="sub-label">入国審査</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">I'm here for sightseeing.</p><p class="pr-ja">観光で来ました</p><span class="pr-cx">入国審査</span></li>
+          <li class="pr"><p class="pr-en">I'm staying for six nights.</p><p class="pr-ja">6泊します。</p><span class="pr-cx">入国審査</span></li>
+          <li class="pr"><p class="pr-en">I'm staying at this hotel.</p><p class="pr-ja">このホテルに泊まります</p><span class="pr-cx">入国審査</span></li>
+          <li class="pr"><p class="pr-en">I'm traveling alone.</p><p class="pr-ja">一人旅です</p><span class="pr-cx">入国審査</span></li>
+          <li class="pr"><p class="pr-en">I have a return ticket.</p><p class="pr-ja">帰りの航空券があります</p><span class="pr-cx">入国審査</span></li>
+          <li class="pr"><p class="pr-en">Here is my itinerary.</p><p class="pr-ja">旅程表はこちらです</p><span class="pr-cx">入国審査</span></li>
+          <li class="pr"><p class="pr-en">Here is my hotel reservation.</p><p class="pr-ja">ホテル予約はこちらです</p><span class="pr-cx">入国審査</span></li>
+          <li class="pr"><p class="pr-en">I don't have anything to declare.</p><p class="pr-ja">申告するものはありません</p><span class="pr-cx">税関</span></li>
+        </ul>
+        <p class="sub-label">空港内・荷物</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Where is baggage claim?</p><p class="pr-ja">荷物受取所はどこですか？</p><span class="pr-cx">到着後</span></li>
+          <li class="pr"><p class="pr-en">My bag hasn't come out.</p><p class="pr-ja">荷物がまだ出てきていません</p><span class="pr-cx">ロストバゲージ</span></li>
+          <li class="pr"><p class="pr-en">My suitcase is damaged.</p><p class="pr-ja">スーツケースが壊れています</p><span class="pr-cx">荷物トラブル</span></li>
+          <li class="pr"><p class="pr-en">Where is the taxi stand?</p><p class="pr-ja">タクシー乗り場はどこですか？</p><span class="pr-cx">空港</span></li>
+          <li class="pr"><p class="pr-en">Where is the Uber pickup area?</p><p class="pr-ja">Uberの乗り場はどこですか？</p><span class="pr-cx">空港</span></li>
+          <li class="pr"><p class="pr-en">I need to go to Manhattan.</p><p class="pr-ja">マンハッタンへ行きたいです</p><span class="pr-cx">空港移動</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Scene 12 -->
+    <details class="scene lineC">
+      <summary>
+        <span class="scene-badge">12</span>
+        <span class="scene-meta"><b>保安検査・持ち物確認</b><span><span class="scene-line">入場</span> 美術館・MLB・劇場・女神で使用</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </summary>
+      <div class="scene-body">
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Do I need to open my bag?</p><p class="pr-ja">バッグを開ける必要がありますか？</p><span class="pr-cx">手荷物検査</span></li>
+          <li class="pr"><p class="pr-en">Should I take this out?</p><p class="pr-ja">これは出した方がいいですか？</p><span class="pr-cx">保安検査</span><span class="pr-tip">PC・水筒等</span></li>
+          <li class="pr"><p class="pr-en">Can I bring this inside?</p><p class="pr-ja">これは中に持ち込めますか？</p><span class="pr-cx">入場前</span></li>
+          <li class="pr"><p class="pr-en">Is this bag OK?</p><p class="pr-ja">このバッグは大丈夫ですか？</p><span class="pr-cx">球場・劇場</span></li>
+          <li class="pr"><p class="pr-en">Do I need to throw this away?</p><p class="pr-ja">これは捨てる必要がありますか？</p><span class="pr-cx">飲み物等</span></li>
+          <li class="pr"><p class="pr-en">Is there a place to store this?</p><p class="pr-ja">これを預けられる場所はありますか？</p><span class="pr-cx">持込不可時</span><span class="pr-tip">store</span></li>
+          <li class="pr"><p class="pr-en">Is there a locker?</p><p class="pr-ja">ロッカーはありますか？</p><span class="pr-cx">荷物保管</span></li>
+          <li class="pr"><p class="pr-en">Is there a bag check?</p><p class="pr-ja">荷物預かりはありますか？</p><span class="pr-cx">美術館等</span><span class="pr-tip">bag check</span></li>
+          <li class="pr"><p class="pr-en">I have medicine in my bag. Is that OK?</p><p class="pr-ja">バッグに薬が入っています。大丈夫ですか？</p><span class="pr-cx">検査時</span></li>
+          <li class="pr"><p class="pr-en">I have a portable charger.</p><p class="pr-ja">モバイルバッテリーがあります</p><span class="pr-cx">検査時</span><span class="pr-tip">portable battery</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Scene 13 -->
+    <details class="scene lineD">
+      <summary>
+        <span class="scene-badge">13</span>
+        <span class="scene-meta"><b>スマホ・チケット・通信</b><span><span class="scene-line">困った</span> 表示不良・電池・充電</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </summary>
+      <div class="scene-body">
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">My ticket is on my phone.</p><p class="pr-ja">チケットはスマホに入っています</p><span class="pr-cx">入場時</span></li>
+          <li class="pr"><p class="pr-en">I have it in Google Wallet.</p><p class="pr-ja">Googleウォレットに入っています</p><span class="pr-cx">入場時</span></li>
+          <li class="pr"><p class="pr-en">My ticket won't load.</p><p class="pr-ja">チケットが表示されません</p><span class="pr-cx">通信不良</span></li>
+          <li class="pr"><p class="pr-en">The QR code won't open.</p><p class="pr-ja">QRコードが開きません</p><span class="pr-cx">表示</span></li>
+          <li class="pr"><p class="pr-en">My phone is slow.</p><p class="pr-ja">スマホの動きが遅いです</p><span class="pr-cx">入場時</span></li>
+          <li class="pr"><p class="pr-en">My screen is too dark.</p><p class="pr-ja">私の画面が暗すぎます</p><span class="pr-cx">QR読取</span></li>
+          <li class="pr"><p class="pr-en">Can I try again?</p><p class="pr-ja">もう一度試していいですか？</p><span class="pr-cx">読取失敗</span></li>
+          <li class="pr"><p class="pr-en">Can I step aside for a moment?</p><p class="pr-ja">少し横にずれてもいいですか？</p><span class="pr-cx">列で焦る時</span></li>
+          <li class="pr"><p class="pr-en">I need Wi-Fi.</p><p class="pr-ja">Wi-Fiが必要です</p><span class="pr-cx">通信不良</span></li>
+          <li class="pr"><p class="pr-en">Is there free Wi-Fi here?</p><p class="pr-ja">ここに無料Wi-Fiはありますか？</p><span class="pr-cx">施設内</span></li>
+          <li class="pr"><p class="pr-en">What is the Wi-Fi password?</p><p class="pr-ja">Wi-Fiのパスワードは何ですか？</p><span class="pr-cx">Wi-Fi確認</span></li>
+          <li class="pr"><p class="pr-en">My battery is almost dead.</p><p class="pr-ja">電池がほとんどありません</p><span class="pr-cx">緊急</span></li>
+          <li class="pr"><p class="pr-en">Can I charge my phone here?</p><p class="pr-ja">ここで充電できますか？</p><span class="pr-cx">カフェ・ホテル</span></li>
+          <li class="pr"><p class="pr-en">Do you have a charger I can use?</p><p class="pr-ja">使える充電器はありますか？</p><span class="pr-cx">ホテル等</span></li>
+          <li class="pr"><p class="pr-en">I need to show my ticket.</p><p class="pr-ja">チケットを見せる必要があります</p><span class="pr-cx">電池切れ寸前</span></li>
+          <li class="pr"><p class="pr-en">Can you help me with this?</p><p class="pr-ja">これを手伝ってもらえますか？</p><span class="pr-cx">スマホ操作</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Scene 14 -->
+    <details class="scene lineD">
+      <summary>
+        <span class="scene-badge">14</span>
+        <span class="scene-meta"><b>体調不良・緊急時</b><span><span class="scene-line">困った</span> 症状・救急・薬局</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </summary>
+      <div class="scene-body">
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">I don't feel well.</p><p class="pr-ja">体調がよくありません</p><span class="pr-cx">体調不良</span></li>
+          <li class="pr"><p class="pr-en">I feel dizzy.</p><p class="pr-ja">めまいがします</p><span class="pr-cx">体調不良</span></li>
+          <li class="pr"><p class="pr-en">I feel sick.</p><p class="pr-ja">気分が悪いです</p><span class="pr-cx">体調不良</span></li>
+          <li class="pr"><p class="pr-en">I have a headache.</p><p class="pr-ja">頭が痛いです</p><span class="pr-cx">体調不良</span></li>
+          <li class="pr"><p class="pr-en">I have a stomachache.</p><p class="pr-ja">お腹が痛いです</p><span class="pr-cx">体調不良</span></li>
+          <li class="pr"><p class="pr-en">I have chest pain.</p><p class="pr-ja">胸が痛いです</p><span class="pr-cx">緊急</span></li>
+          <li class="pr"><p class="pr-en">I can't breathe well.</p><p class="pr-ja">息がしづらいです</p><span class="pr-cx">緊急</span></li>
+          <li class="pr"><p class="pr-en">I need a doctor.</p><p class="pr-ja">医師が必要です</p><span class="pr-cx">緊急</span></li>
+          <li class="pr"><p class="pr-en">Please call an ambulance.</p><p class="pr-ja">救急車を呼んでください</p><span class="pr-cx">緊急</span></li>
+          <li class="pr"><p class="pr-en">Please call 911.</p><p class="pr-ja">911に電話してください</p><span class="pr-cx">緊急</span></li>
+          <li class="pr"><p class="pr-en">Where is the pharmacy?</p><p class="pr-ja">薬局はどこですか？</p><span class="pr-cx">軽い不調</span></li>
+          <li class="pr"><p class="pr-en">Do you have pain medicine?</p><p class="pr-ja">痛み止めはありますか？</p><span class="pr-cx">薬局</span></li>
+          <li class="pr"><p class="pr-en">I need water.</p><p class="pr-ja">水が必要です</p><span class="pr-cx">体調不良</span></li>
+          <li class="pr"><p class="pr-en">I'm allergic to ____.</p><p class="pr-ja">私は____にアレルギーがあります。</p><span class="pr-cx">薬・食事</span></li>
+          <li class="pr"><p class="pr-en">Could you help me call my hotel?</p><p class="pr-ja">ホテルに電話するのを手伝ってもらえますか？</p><span class="pr-cx">困った時</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Scene 15 -->
+    <details class="scene lineD">
+      <summary>
+        <span class="scene-badge">15</span>
+        <span class="scene-meta"><b>勧誘・不審な声かけを断る</b><span><span class="scene-line">安全</span> 強さ順・赤ライン付き</span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+      </summary>
+      <div class="scene-body">
+        <p class="sub-label">弱め（通常の断り）</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">No, thank you.</p><p class="pr-ja">いいえ、けっこうです</p><span class="pr-cx">通常</span></li>
+          <li class="pr"><p class="pr-en">I'm good, thanks.</p><p class="pr-ja">大丈夫です、ありがとう</p><span class="pr-cx">カジュアル</span></li>
+          <li class="pr"><p class="pr-en">Not today, thanks.</p><p class="pr-ja">今日はけっこうです</p><span class="pr-cx">勧誘</span></li>
+        </ul>
+        <p class="sub-label">中くらい（立ち去る・物売り）</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Sorry, I have to go.</p><p class="pr-ja">すみません、行かないと</p><span class="pr-cx">立ち去る</span></li>
+          <li class="pr"><p class="pr-en">I don't need it.</p><p class="pr-ja">必要ありません</p><span class="pr-cx">物売り</span></li>
+          <li class="pr"><p class="pr-en">I'm not interested.</p><p class="pr-ja">興味ありません</p><span class="pr-cx">しつこい時</span></li>
+        </ul>
+        <p class="sub-label">強め（距離を取る）</p>
+        <ul class="prs">
+          <li class="pr"><p class="pr-en">Please don't touch me.</p><p class="pr-ja">触らないでください</p><span class="pr-cx">距離が近い</span></li>
+          <li class="pr"><p class="pr-en">Please leave me alone.</p><p class="pr-ja">放っておいてください</p><span class="pr-cx">しつこい時</span></li>
+          <li class="pr"><p class="pr-en">I said no.</p><p class="pr-ja">断りました</p><span class="pr-cx">さらにしつこい</span></li>
+          <li class="pr"><p class="pr-en">I'm calling the police.</p><p class="pr-ja">警察を呼びます</p><span class="pr-cx">危険時</span></li>
+        </ul>
+        <div class="callout">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+          <div><b>赤ライン</b>　「Maybe later.」は避ける（後で可能と受け取られる）。長く説明しない、<b>No, thank you.</b> で十分。しつこい時は英語で説得しようとせず、距離を取る。</div>
+        </div>
+      </div>
+    </details>
+
+  </section>
+
+  <!-- ===== 05 REPLIES ===== -->
+  <section id="replies">
+    <div class="sec-head">
+      <span class="kicker">05</span>
+      <h2>相手の英語と返答<span class="h2-sub">よく聞かれる質問（左）と、そのまま返せる答え（右）。</span></h2>
+    </div>
+
+    <div class="reply-tab-bar" role="tablist" aria-label="シーン選択">
+      <button class="reply-tab-btn is-active" role="tab" aria-selected="true" aria-controls="rtab-restaurant" data-tab="rtab-restaurant">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v7a2 2 0 0 0 4 0V2M6 2v9M6 11v11M12 22V2c2 0 4 2 4 6s-2 6-4 6"/></svg>
+        レストラン
+      </button>
+      <button class="reply-tab-btn" role="tab" aria-selected="false" aria-controls="rtab-hotel" data-tab="rtab-hotel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3M9 9v.01M9 12v.01M9 15v.01"/></svg>
+        ホテル
+      </button>
+      <button class="reply-tab-btn" role="tab" aria-selected="false" aria-controls="rtab-ticket" data-tab="rtab-ticket">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7v3a2 2 0 0 1 0 4v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a2 2 0 0 1 0-4V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1Z"/></svg>
+        入場・チケット
+      </button>
+      <button class="reply-tab-btn" role="tab" aria-selected="false" aria-controls="rtab-payment" data-tab="rtab-payment">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        支払い
+      </button>
+    </div>
+
+    <div id="rtab-restaurant" class="reply-panel is-active" role="tabpanel">
+      <div class="dlg-group">
+        <p class="dlg-sub"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v7a2 2 0 0 0 4 0V2M6 2v9M6 11v11M12 22V2c2 0 4 2 4 6s-2 6-4 6"/></svg></span>レストラン</p>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">How many?</span><span class="ja">何名ですか？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">One. / Just one.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Do you have a reservation?</span><span class="ja">予約はありますか？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Yes, I have a reservation.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">What would you like?</span><span class="ja">何にしますか？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">I'll have this.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Anything to drink?</span><span class="ja">飲み物は？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Water, please.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Still or sparkling?</span><span class="ja">普通の水？炭酸水？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Still, please.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">How is everything?</span><span class="ja">お食事はいかがですか？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Everything is good.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Are you still working on it?</span><span class="ja">まだ食べていますか？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Yes, I'm still working on it. / I'm done.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Do you need a box?</span><span class="ja">持ち帰り箱は要りますか？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Yes, please. / No, thank you.</span></div></div>
+      </div>
+    </div>
+
+    <div id="rtab-hotel" class="reply-panel" role="tabpanel">
+      <div class="dlg-group">
+        <p class="dlg-sub"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3M9 9v.01M9 12v.01M9 15v.01"/></svg></span>ホテル</p>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">May I see your ID?</span><span class="ja">身分証を見せてください</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Here is my passport.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Do you have a reservation?</span><span class="ja">予約はありますか？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Yes, I have a reservation.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Could you insert your card?</span><span class="ja">カードを差し込んでください</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Sure.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">How many nights?</span><span class="ja">何泊ですか？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Six nights.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Do you need help with your bags?</span><span class="ja">荷物を手伝いましょうか？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Yes, please. / No, thank you.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Have a nice day!</span><span class="ja">よい一日を！</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Thank you. You too. See you later.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Welcome back. How was your day?</span><span class="ja">おかえりなさい。今日はどうでしたか？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">It was great. I walked a lot today.</span></div></div>
+      </div>
+    </div>
+
+    <div id="rtab-ticket" class="reply-panel" role="tabpanel">
+      <div class="dlg-group">
+        <p class="dlg-sub"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v3a2 2 0 0 1 0 4v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a2 2 0 0 1 0-4V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1Z"/></svg></span>入場・チケット</p>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Can I see your ticket?</span><span class="ja">チケットを見せてください</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Here is my ticket.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Please scan your ticket.</span><span class="ja">チケットをスキャンしてください</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Sure.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Which time slot?</span><span class="ja">何時枠ですか？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">10 a.m.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Do you have a bag?</span><span class="ja">バッグはありますか？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Yes, I do.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Please open your bag.</span><span class="ja">バッグを開けてください</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Sure.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">This line is for ticket holders.</span><span class="ja">この列はチケット保持者用です</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">I have a ticket.</span></div></div>
+      </div>
+    </div>
+
+    <div id="rtab-payment" class="reply-panel" role="tabpanel">
+      <div class="dlg-group">
+        <p class="dlg-sub"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>支払い</p>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Cash or card?</span><span class="ja">現金ですか、カードですか？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Card, please.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Do you need a receipt?</span><span class="ja">レシートは必要ですか？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Yes, please.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Would you like a bag?</span><span class="ja">袋は必要ですか？</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">No, thank you.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Please sign here.</span><span class="ja">ここにサインしてください</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Sure.</span></div></div>
+        <div class="dlg"><div class="bubble b-in"><span class="role">相手</span><span class="en">Please enter your PIN.</span><span class="ja">PINを入力してください</span></div><div class="bubble b-out"><span class="role">あなた</span><span class="en">Sure.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 06 REPHRASE ===== -->
+  <section id="rephrase">
+    <div class="sec-head">
+      <span class="kicker">06</span>
+      <h2>通じる言い換え<span class="h2-sub">発音が不安でも通じやすい「短く」と、印象のよい「丁寧」。</span></h2>
+    </div>
+    <div class="cmp"><p class="cmp-want">これをください</p><div class="cmp-opts"><div class="cmp-opt cmp-short"><span>短く</span>This one, please.</div><div class="cmp-opt cmp-polite"><span>丁寧</span>Can I get this one?</div></div></div>
+    <div class="cmp"><p class="cmp-want">ここに行きたい</p><div class="cmp-opts"><div class="cmp-opt cmp-short"><span>短く</span>I'm going here.</div><div class="cmp-opt cmp-polite"><span>丁寧</span>Could you take me here?</div></div></div>
+    <div class="cmp"><p class="cmp-want">分かりません</p><div class="cmp-opts"><div class="cmp-opt cmp-short"><span>短く</span>I don't understand.</div><div class="cmp-opt cmp-polite"><span>丁寧</span>I'm sorry, I don't understand.</div></div></div>
+    <div class="cmp"><p class="cmp-want">もう一度</p><div class="cmp-opts"><div class="cmp-opt cmp-short"><span>短く</span>Again, please.</div><div class="cmp-opt cmp-polite"><span>丁寧</span>Could you say that again?</div></div></div>
+    <div class="cmp"><p class="cmp-want">ゆっくり</p><div class="cmp-opts"><div class="cmp-opt cmp-short"><span>短く</span>Slowly, please.</div><div class="cmp-opt cmp-polite"><span>丁寧</span>Could you speak slowly, please?</div></div></div>
+    <div class="cmp"><p class="cmp-want">地図で見せて</p><div class="cmp-opts"><div class="cmp-opt cmp-short"><span>短く</span>Map, please.</div><div class="cmp-opt cmp-polite"><span>丁寧</span>Could you show me on the map?</div></div></div>
+    <div class="cmp"><p class="cmp-want">写真を撮って</p><div class="cmp-opts"><div class="cmp-opt cmp-short"><span>短く</span>Photo, please?</div><div class="cmp-opt cmp-polite"><span>丁寧</span>Could you take my picture?</div></div></div>
+    <div class="cmp"><p class="cmp-want">大丈夫です</p><div class="cmp-opts"><div class="cmp-opt cmp-short"><span>短く</span>It's OK.</div><div class="cmp-opt cmp-polite"><span>丁寧</span>That's okay, thank you.</div></div></div>
+    <div class="cmp"><p class="cmp-want">結構です</p><div class="cmp-opts"><div class="cmp-opt cmp-short"><span>短く</span>No, thanks.</div><div class="cmp-opt cmp-polite"><span>丁寧</span>No, thank you.</div></div></div>
+    <div class="cmp"><p class="cmp-want">助けてください</p><div class="cmp-opts"><div class="cmp-opt cmp-short"><span>短く</span>Help, please.</div><div class="cmp-opt cmp-polite"><span>丁寧</span>Could you help me?</div></div></div>
+  </section>
+
+  <!-- ===== 07 AVOID ===== -->
+  <section id="avoid">
+    <div class="sec-head">
+      <span class="kicker">07</span>
+      <h2>現地で避ける表現・行動<span class="h2-sub">きつい・命令っぽい・曖昧は避ける。✕の代わりに✓を使う。</span></h2>
+    </div>
+    <div class="avoid">
+      <div class="avoid-row"><span class="mark x">✕</span><span class="avoid-bad">What?</span></div>
+      <p class="avoid-why">きつく聞こえる</p>
+      <div class="avoid-good"><span class="mark o">✓</span>Sorry? / Could you say that again?</div>
+    </div>
+    <div class="avoid">
+      <div class="avoid-row"><span class="mark x">✕</span><span class="avoid-bad">Give me this.</span></div>
+      <p class="avoid-why">命令っぽい</p>
+      <div class="avoid-good"><span class="mark o">✓</span>Can I get this?</div>
+    </div>
+    <div class="avoid">
+      <div class="avoid-row"><span class="mark x">✕</span><span class="avoid-bad">Speak slowly.</span></div>
+      <p class="avoid-why">命令っぽい</p>
+      <div class="avoid-good"><span class="mark o">✓</span>Please speak slowly.</div>
+    </div>
+    <div class="avoid">
+      <div class="avoid-row"><span class="mark x">✕</span><span class="avoid-bad">I don't understand English.</span></div>
+      <p class="avoid-why">会話不能に聞こえる</p>
+      <div class="avoid-good"><span class="mark o">✓</span>My English is not good.</div>
+    </div>
+    <div class="avoid">
+      <div class="avoid-row"><span class="mark x">✕</span><span class="avoid-bad">Maybe later.</span></div>
+      <p class="avoid-why">勧誘に対して曖昧（後で可能と取られる）</p>
+      <div class="avoid-good"><span class="mark o">✓</span>No, thank you.</div>
+    </div>
+    <div class="avoid">
+      <div class="avoid-row"><span class="mark x">✕</span><span class="avoid-bad">長い説明</span></div>
+      <p class="avoid-why">伝わりにくい</p>
+      <div class="avoid-good"><span class="mark o">✓</span>短文＋スマホ提示</div>
+    </div>
+    <div class="avoid">
+      <div class="avoid-row"><span class="mark x">✕</span><span class="avoid-bad">焦って列で粘る</span></div>
+      <p class="avoid-why">後ろが詰まる</p>
+      <div class="avoid-good"><span class="mark o">✓</span>Can I step aside for a moment?</div>
+    </div>
+    <div class="avoid">
+      <div class="avoid-row"><span class="mark x">✕</span><span class="avoid-bad">夜道で迷って歩き続ける</span></div>
+      <p class="avoid-why">安全面で不利</p>
+      <div class="avoid-good"><span class="mark o">✓</span>ホテル・店・駅員に確認する</div>
+    </div>
+    <div class="avoid">
+      <div class="avoid-row"><span class="mark x">✕</span><span class="avoid-bad">I go now.</span></div>
+      <p class="avoid-why">文法的に不自然</p>
+      <div class="avoid-good"><span class="mark o">✓</span>I'm heading out now.</div>
+    </div>
+  </section>
+
+  <!-- ===== 08 BASIS ===== -->
+  <section id="basis">
+    <div class="sec-head">
+      <span class="kicker">08</span>
+      <h2>根拠と確度<span class="h2-sub">この構成にした理由。事実・推測・意見を分けて明記。</span></h2>
+    </div>
+    <div class="basis">
+      <h3><span class="tg tg-fact">事実</span></h3>
+      <ul>
+        <li>旅行中の英語は、長文よりも<span class="em">短い定型文・スマホ画面提示・指差し</span>の組み合わせが実用的。</li>
+        <li>事前取得チケット中心の旅行では、購入表現よりも<span class="em">チケット提示・QR読取・列確認・ゲート確認・席確認</span>が重要。</li>
+        <li>ニューヨークは地下鉄・劇場・球場・美術館・フェリーなど、<span class="em">列・入口・保安検査・チケット確認</span>の場面が多い。</li>
+      </ul>
+      <h3><span class="tg tg-guess">推測（前提）</span></h3>
+      <ul>
+        <li>ゆうきさんは長く会話するより、必要な場面で短く正確に伝える方が実用的。</li>
+        <li>Googleウォレットにチケットを入れる場面が多いため、<span class="em">提示・スマホトラブル対応</span>の表現を厚めにすると有効。</li>
+        <li>一人旅なので、<span class="em">写真依頼・道案内・安全確認・体調不良</span>時の表現も重要。</li>
+      </ul>
+
+
+    </div>
+  </section>
+
+</div>
+
+<nav class="bottom-nav" aria-label="クイックナビ">
+  <a href="#memorize" class="bn-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    <span>覚える</span>
+  </a>
+  <a href="#srank" class="bn-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <span>Sランク</span>
+  </a>
+  <a href="#cards" class="bn-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>
+    <span>カード</span>
+  </a>
+  <a href="#scenes" class="bn-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20 3 17V4l6 3 6-3 6 3v13l-6-3-6 3Z"/><path d="M9 7v13M15 4v13"/></svg>
+    <span>場面別</span>
+  </a>
+  <a href="#replies" class="bn-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span>返答</span>
+  </a>
+  <a href="#rephrase" class="bn-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 5 5-5 5M11 7h10M11 17h10"/></svg>
+    <span>言い換え</span>
+  </a>
+  <a href="#top" class="bn-item bn-top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    <span>TOP</span>
+  </a>
+</nav>
+
+
+<div id="phrase-spotlight" role="dialog" aria-modal="true" aria-label="フレーズ提示">
+  <div class="ps-card">
+    <button class="ps-close" aria-label="閉じる">✕</button>
+    <div class="ps-en" lang="en"></div>
+    <div class="ps-ja"></div>
+    <span class="ps-cx"></span>
+  </div>
+  <span class="ps-hint">タップして閉じる</span>
+</div>
+
+<div id="nav-overlay" class="nav-overlay" aria-hidden="true">
+  <div class="nav-sheet" role="dialog" aria-modal="true" aria-label="目次">
+    <div class="nav-sheet-top">
+      <span class="nav-sheet-title">目次</span>
+      <button class="nav-close-btn" id="nav-close" aria-label="閉じる">✕</button>
+    </div>
+    <ul class="nav-list">
+      <li><a href="#memorize"><span class="nav-n">01</span>覚えるフレーズ</a></li>
+      <li><a href="#srank"><span class="nav-n">02</span>Sランク</a></li>
+      <li><a href="#cards"><span class="nav-n">03</span>見せる用カード</a></li>
+      <li><a href="#scenes"><span class="nav-n">04</span>場面別ガイド</a></li>
+      <li><a href="#replies"><span class="nav-n">05</span>相手の英語と返答</a></li>
+      <li><a href="#rephrase"><span class="nav-n">06</span>通じる言い換え</a></li>
+      <li><a href="#avoid"><span class="nav-n">07</span>避ける表現</a></li>
+      <li><a href="#basis"><span class="nav-n">08</span>根拠と確度</a></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var overlay = document.getElementById('phrase-spotlight');
+  var psEn   = overlay.querySelector('.ps-en');
+  var psJa   = overlay.querySelector('.ps-ja');
+  var psCx   = overlay.querySelector('.ps-cx');
+
+  function openSpotlight(en, ja, cx) {
+    psEn.textContent = en;
+    psJa.textContent = ja || '';
+    psJa.style.display = ja ? '' : 'none';
+    psCx.textContent = cx || '';
+    psCx.style.display = cx ? '' : 'none';
+    overlay.classList.add('ps-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSpotlight() {
+    overlay.classList.remove('ps-open');
+    document.body.style.overflow = '';
+  }
+
+  overlay.addEventListener('click', closeSpotlight);
+
+  var psCloseBtn = document.querySelector('.ps-close');
+  if (psCloseBtn) psCloseBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    closeSpotlight();
+  });
+
+  function getText(el) { return (el && el.textContent.trim()) || ''; }
+
+  function attach(selector, getEn, getJa, getCx) {
+    document.querySelectorAll(selector).forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.stopPropagation();
+        openSpotlight(getEn(el), getJa(el), getCx(el));
+      });
+    });
+  }
+
+  /* フレーズリスト */
+  attach('.pr .pr-en',
+    function (el) { return getText(el); },
+    function (el) { var p = el.closest('.pr'); return getText(p && p.querySelector('.pr-ja')); },
+    function (el) { var p = el.closest('.pr'); return getText(p && p.querySelector('.pr-cx')); }
+  );
+
+  /* 見せる用カード */
+  attach('.showcard li .en',
+    function (el) { return getText(el); },
+    function (el) { var li = el.closest('li'); return getText(li && li.querySelector('.ja')); },
+    function () { return ''; }
+  );
+
+  /* 基本の型 */
+  attach('.flow li .en',
+    function (el) { return getText(el); },
+    function (el) { var li = el.closest('li'); return getText(li && li.querySelector('.ja')); },
+    function () { return ''; }
+  );
+
+  /* 実戦テンプレート */
+  attach('.tpl li .en',
+    function (el) { return getText(el); },
+    function (el) { var li = el.closest('li'); return getText(li && li.querySelector('.ja')); },
+    function () { return ''; }
+  );
+
+  /* 会話例 */
+  attach('.bubble .en',
+    function (el) { return getText(el); },
+    function (el) { var b = el.closest('.bubble'); return getText(b && b.querySelector('.ja')); },
+    function (el) { var b = el.closest('.bubble'); return getText(b && b.querySelector('.role')); }
+  );
+
+})();
+
+/* ---- NAV OVERLAY ---- */
+(function () {
+  'use strict';
+  var overlay = document.getElementById('nav-overlay');
+  var openBtn = document.getElementById('menu-open');
+  var closeBtn = document.getElementById('nav-close');
+
+  function openNav() {
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    openBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeNav() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    openBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    openBtn.focus();
+  }
+
+  openBtn.addEventListener('click', openNav);
+  closeBtn.addEventListener('click', closeNav);
+
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeNav();
+  });
+
+  overlay.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeNav);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeNav();
+  });
+})();
+
+/* ---- REPLY TABS ---- */
+(function () {
+  'use strict';
+  var btns   = document.querySelectorAll('.reply-tab-btn');
+  var panels = document.querySelectorAll('.reply-panel');
+
+  function activateTab(targetId) {
+    btns.forEach(function (btn) {
+      var active = btn.dataset.tab === targetId;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    panels.forEach(function (panel) {
+      panel.classList.toggle('is-active', panel.id === targetId);
+    });
+  }
+
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      activateTab(btn.dataset.tab);
+    });
+  });
+})();
+
+/* ---- SCENE CATEGORY FILTER ---- */
+(function () {
+  'use strict';
+  var catBtns = document.querySelectorAll('.scene-cat-btn');
+  var scenes  = document.querySelectorAll('.scene');
+
+  function filterScenes(cat) {
+    catBtns.forEach(function (btn) {
+      btn.classList.toggle('is-active', btn.dataset.cat === cat);
+    });
+    scenes.forEach(function (scene) {
+      if (cat === 'all') {
+        scene.style.display = '';
+      } else {
+        scene.style.display = scene.classList.contains('line' + cat) ? '' : 'none';
+      }
+    });
+  }
+
+  catBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filterScenes(btn.dataset.cat);
+    });
+  });
+})();
+
+/* ---- SCENES CLOSE ALL ---- */
+(function () {
+  'use strict';
+  var btn = document.getElementById('scenes-close-all');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('.scene').forEach(function (d) {
+      d.removeAttribute('open');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
